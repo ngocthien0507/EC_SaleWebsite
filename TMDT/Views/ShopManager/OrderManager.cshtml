@@ -1,0 +1,103 @@
+﻿@model PagedList.IPagedList<Model.EF.ShopOrder>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Quản lý đơn hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var user = (TMDT.Common.UserLogin)Session[TMDT.Common.CommonConstants.USER_SESSION];
+}
+@section css{
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+}
+@section jsFooter{
+    <script src="~/Scripts/jsController/ShopManager.js"></script>
+}
+<div class="content">
+    <div class="content_top">
+        <div class="heading">
+            <h3>Danh sách đơn hàng</h3>
+        </div>
+        <div class="clear"></div>
+    </div>
+    @using (Html.BeginForm("OrderManager", "ShopManager", FormMethod.Get))
+    {
+        <div class="row">
+            <div class="col-lg-4">
+                <input class="form-control small" type="text" placeholder="Mã đơn hàng" value="@ViewBag.SearchCode" name="searchCode" />
+            </div>
+            <div>
+                <button class="btn btn-primary" type="submit"><i class="fas fa-search fa-sm"></i></button>
+            </div>
+        </div>
+    }
+    <div class="section group">
+        <table class="table table-striped">
+            <thead>
+                <tr style="color:white;background-color:#383838">
+                    <th>Mã đơn hàng</th>
+                    <th>Ngày mua</th>
+                    <th>Tổng tiền</th>
+                    <th>Tình trạng</th>
+                    <th>Ngày giao hàng</th>
+                    <th><center>#</center></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>#@item.ID</td>
+                        <td>@String.Format("{0:dd/MM/yyyy}", @item.TotalOrder.CreateDate)</td>
+                        <td>@item.TotalPrice.GetValueOrDefault(0).ToString("N0") VNĐ</td>
+                        @if (item.Status == 0)
+                        {
+                            <td style="color:red">Đơn mới</td>
+                        }
+                        else if (item.Status == 1)
+                        {
+                            <td style="color:blue">Đang giao hàng</td>
+                        }
+                        else if (item.Status == 2)
+                        {
+                            <td style="color:green">Đã giao</td>
+                        }
+                        else
+                        {
+                            <td style="color:gray">Đã hủy</td>
+                        }
+
+                        @if (item.DeliveryDate != null)
+                        {
+                            <td>@String.Format("{0:dd/MM/yyyy}", item.DeliveryDate)</td>
+                        }
+                        else
+                        {
+                            <td>#chưa giao</td>
+                        }
+
+                        @if (item.Status == 1)
+                        {
+                            <td>
+                                <a href="/quan-ly-shop/quan-ly-don-hang/chi-tiet-don-hang/@item.ID">Chi tiết</a>
+                                |
+                                <a id="ordercomplete" data-id="@item.ID" href="#">Xác nhận đã giao hàng</a>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                <center><a href="/quan-ly-shop/quan-ly-don-hang/chi-tiet-don-hang/@item.ID">Chi tiết</a></center>
+                            </td>
+                        }
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+        @Html.PagedListPager(Model, page => Url.Action("OrderManager", new { page, @searchCode = @ViewBag.SearchCode }))
+    </div>
+    <div>
+        <div>
+            <a href="/quan-ly-shop "><i class="fa fa-arrow-circle-left"></i> Quạy lại</a>
+        </div>
+    </div>
+</div>

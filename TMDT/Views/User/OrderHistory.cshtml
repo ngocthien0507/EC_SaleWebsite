@@ -1,0 +1,101 @@
+﻿@model List<Model.EF.TotalOrder>
+@{
+    ViewBag.Title = "Đơn hàng của tôi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var user = (TMDT.Common.UserLogin)Session[TMDT.Common.CommonConstants.USER_SESSION];
+}
+@section jsFooter{
+    <script type="text/javascript">
+        $('#refuseOrder').off('click').on('click', function (e) {
+
+            if (confirm('Đồng ý hủy đơn hàng?')) {
+                $.ajax({
+                    data: { id: $(this).data('id') },
+                    url: '/User/RefuseOrder',
+                    dataType: 'json',
+                    type: 'POST',
+                    success: function (res) {
+                        if (res.status == true) {
+                            window.location.href = "/lich-su-mua-hang/@user.UserID";
+                        }
+                    }
+                });
+            } e.preventDefault();
+        });
+    </script>
+    }
+<div class="content">
+    <div class="content_top">
+        <div class="heading">
+            <h3>Đơn hàng của tôi</h3>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="section group">
+        <table class="table table-striped">
+            <thead>
+                <tr style="color:white;background-color:#383838">
+                    <th>Mã đơn hàng</th>
+                    <th>Ngày mua</th>
+                    <th>Sản phẩm</th>
+                    <th>Tổng tiền</th>
+                    <th>Tình trạng</th>
+                    <th>#</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    int count = 0;
+                    foreach (var item1 in item.ShopOrders)
+                    {
+                        count += item1.OrderDetails.Count();
+                    }
+                <tr style="font-size:13px;">
+                    <td>#@item.ID</td>
+                    <td>@String.Format("{0:dd/MM/yyyy}", @item.CreateDate)</td>
+                    @if (item.ShopOrders.Count() > 1)
+                    {
+                        count -= 1;
+                        <td>@item.ShopOrders.First().OrderDetails.First().Product.Name ..và @count sản phẩm khác</td>
+                    }
+                    else
+                    {
+                        <td>@item.ShopOrders.First().OrderDetails.First().Product.Name</td>
+                    }
+
+                    <td>@item.TotalPrice.GetValueOrDefault().ToString("N0")VNĐ</td>
+                    @if (item.Status == 0)
+                    {
+                        <td style="color:blue;">Chưa liên lạc</td>
+                        <td>
+                            <a id="refuseOrder" href="#" data-id="@item.ID">Hủy</a>
+                            |
+                            <a href="/chi-tiet-don-hang/@item.ID">Chi tiết</a>
+                        </td>
+                    }
+                    else if (item.Status == 1)
+                    {
+                        <td style="color:orange;">Đang vận chuyển</td>
+                        <td>
+                            <a href="/chi-tiet-don-hang/@item.ID">Chi tiết</a>
+                        </td>
+                    }
+                    else if (item.Status == 2)
+                    {
+                        <td style="color:green;">Giao hàng thành công</td>
+                        <td>
+                            <a href="/chi-tiet-don-hang/@item.ID">Chi tiết</a>
+                        </td>
+                    }
+                    else
+                    {
+                        <td style="color:gray;">Đã hủy</td>
+                        <td>#</td>
+                    }
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

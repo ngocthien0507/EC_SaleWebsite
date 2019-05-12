@@ -1,0 +1,48 @@
+﻿@model List<Model.EF.advertisement>
+
+@{
+    Model.EF.advertisement leftad = null;
+    Model.EF.advertisement rightad = null;
+    if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            if (item.Location == "LEFTAD")
+            {
+                leftad = item;
+            }
+            else
+            {
+                rightad = item;
+            }
+        }
+    }
+}
+
+@if (leftad != null)
+{
+    <div id="left_ads_float">
+        <a href="@leftad.Link"><img src="@leftad.Image" alt="@leftad.Content" width="235" height="460" /></a>
+    </div>
+}
+else
+{
+    <div id="left_ads_float">
+        <a href="#"><img src="~/Data/Advertisment/bothsiteExample.jpg" alt="Liên hệ ngay" width="235" height="460" /></a>
+    </div>
+}
+@if (rightad != null)
+{
+    <div id="right_ads_float">
+        <a href="@rightad.Link"><img src="@rightad.Image" alt="@rightad.Content" width="235" height="460" /></a>
+    </div>
+}
+else
+{
+    <div id="right_ads_float">
+        <a href="#"><img src="~/Data/Advertisment/bothsiteExample.jpg" alt="Liên hệ ngay" width="235" height="460" /></a>
+    </div>
+}
+
+
+

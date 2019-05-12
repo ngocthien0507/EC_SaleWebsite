@@ -1,0 +1,70 @@
+﻿@model Model.EF.ProductCategory
+@{
+    ViewBag.Title = Model.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listproductbycategoryid = (List<Model.EF.Product>)ViewBag.ListProductByCategoryID;
+    var count = 0;
+}
+<div class="content">
+    <div class="content_top">
+        <div class="heading">
+            <h3>@Model.Name</h3>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="section group row">
+        @foreach (var item in listproductbycategoryid)
+        {
+            var link = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
+            count += 1;
+            if ((count - 1) % 4 == 0)
+            {
+                <div id="box-5" class="grid_1_of_4 images_1_of_4">
+                    <div>
+                        <a href="@link"><img src="@item.Image" alt="" /></a>
+                    </div>
+                    <div class="productname">
+                        <h2><a href="@link">@item.Name</a></h2>
+                    </div>
+                    <div class="price-details">
+                        <p><span class="rupees">@(item.Price.HasValue ? item.Price.Value.ToString("N0") + " VNĐ" : "Liên hệ")</span></p>
+                    </div>
+                    <div class="add-cart">
+                        <h4><a href="/them-vao-gio?productID=@item.ID&quantity=1">Thêm vào giỏ hàng</a></h4>
+                    </div>
+                    <div class="merchant-name">
+                        <a href="/san-pham/@item.Account1.ShopName/@item.Account1.ID">Cửa hàng:@item.Account1.ShopName</a>
+                    </div>
+                    <div class="quantity-left">
+                        Còn lại: @item.Quantity
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="grid_1_of_4 images_1_of_4">
+                    <div>
+                        <a href="@link"><img src="@item.Image" alt="" /></a>
+                    </div>
+                    <div class="productname">
+                        <h2><a href="@link">@item.Name</a></h2>
+                    </div>
+                    <div class="price-details">
+                        <p><span class="rupees">@(item.Price.HasValue ? item.Price.Value.ToString("N0") + " VNĐ" : "Liên hệ")</span></p>
+                    </div>
+                    <div class="add-cart">
+                        <h4><a href="/them-vao-gio?productID=@item.ID&quantity=1">Thêm vào giỏ hàng</a></h4>
+                    </div>
+                    <div class="merchant-name">
+                        <a href="/san-pham/@item.Account1.ShopName/@item.Account1.ID">Cửa hàng:@item.Account1.ShopName</a>
+                    </div>
+                    <div class="quantity-left">
+                        Còn lại: @item.Quantity
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+

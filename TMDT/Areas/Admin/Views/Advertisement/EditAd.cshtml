@@ -1,0 +1,100 @@
+﻿@model Model.EF.advertisement
+@{
+    ViewBag.Title = "Chỉnh sửa quảng cáo";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+
+}
+@section header{
+    Chỉnh sửa quảng cáo
+}
+@section script{
+    <script type="text/javascript">
+        function clicked(e) {
+            if (!confirm('Xác nhận thanh toán?')) e.preventDefault();
+        }
+    </script>
+    <script>
+        $(function () {
+            //click button chọn ảnh
+            $('#btnUpload').on('click', function () {
+                $('#fileupload').trigger('click');
+            });
+            // bắt sự kiện change data của fileupload
+            $('#fileupload').change(function () {
+                //kiểm tra trình duyệt có hỗ trợ formData object không?
+                if (window.FormData !== undefined) {
+                    //lấy dữ liệu
+                    var fileUpload = $('#fileupload').get(0);
+                    var files = fileUpload.files;
+                    //tạo đối tượng fromData
+                    var formData = new FormData();
+                    //đưa data vào form
+                    formData.append('file', files[0]);
+                    $.ajax(
+                        {
+                            type: 'POST',
+                            url: '/Advertisement/uploadPicture',
+                            contentType: false, // không có header
+                            processData: false, // không xử lý dữ liệu
+                            data: formData,
+                            success: function (urlImage) {
+                                $('#pictureUpload').attr('src', urlImage);
+                                $('#txtImageAds').val(urlImage);
+                            },
+                            error: function (err) {
+                                alert('Có lỗi khi upload ảnh: ' + err.statusText)
+                            }
+                        });
+                }
+            });
+        });
+    </script> <!--script upload anh-->
+}
+<div class="row">
+    <div class="col-lg-7">
+        <div>
+            <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Sửa nội dung</h1>
+            </div>
+            @using (Html.BeginForm("EditAd", "Advertisement", FormMethod.Post, new { @class = "ads", @id = "formsubmit-admin" , @onsubmit = "clicked(event)" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.Label("", "Tên quảng cáo:", new { @style = "margin-left:5px;color: #3a3b45!important;" })
+                    @Html.TextBoxFor(model => model.Content, new { @class = "form-control form-control-user", @placeholder = "Tên quảng cáo", @required = "true" })
+                </div>
+                <div class="form-group">
+                    @Html.Label("", "Link quảng cáo:", new { @style = "margin-left:5px;color: #3a3b45!important;" })
+                    @Html.TextBoxFor(model => model.Link, new { @class = "form-control form-control-user", @placeholder = "Link quảng cáo", @required = "true" })
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-9">
+                        @Html.Label("", "Banner: ", new { @style = "margin-left:5px;color: #3a3b45!important;margin-bottom:5px;" })
+                        @Html.TextBoxFor(model => model.Image, new { @class = "form-control form-control-user", @id = "txtImageAds", @placeholder = "Ảnh sản phẩm", @required = "true" })
+                    </div>
+                    <div class="col-lg-3">
+                        <input type="file" id="fileupload" accept="image/*" name="fileUpload" style="display:none;" />
+                        <input type="button" id="btnUpload" style="margin-top:25px;" value="Chọn ảnh" class="btn btn-success" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Cập nhật" class="btn btn-primary btn-user btn-block" />
+                </div>
+            }
+        </div>
+    </div>
+    <div class="col-lg-5">
+        @if (Model.Location != "SLIDE")
+        {
+            <img id="pictureUpload" src="@Model.Image" style="max-height:620px;max-width:190px;" />
+        }
+        else
+        {
+            <img id="pictureUpload" src="@Model.Image" style="height:200px;max-width:100%;" />
+        }
+    </div>
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -1,0 +1,55 @@
+﻿@model List<Model.EF.Menu>
+@{
+    var sessionUser = (TMDT.Common.UserLogin)Session[TMDT.Common.CommonConstants.USER_SESSION];
+    var sessionUserInfo = (Model.EF.Account)Session[TMDT.Common.CommonConstants.USER_INFO_SESSION];
+    var LoginMenu = (List<Model.EF.Menu>)ViewBag.LoginMenu;
+    var loginmerchant = (List<Model.EF.Menu>)ViewBag.LoginMerchant;
+    var registermerchant = (List<Model.EF.Menu>)ViewBag.RegisterMerchant;
+}
+<div class="call">
+    <p><span>Need help? </span> Call us! <span class="number">035-677-5770</span><span></span></p>
+</div>
+<div class="account_desc">
+    @if (sessionUser == null)
+    {
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li><a href="@item.Link" target="@item.Target">@item.Text</a></li>
+            }
+        </ul>
+    }
+    else
+    {
+        <ul>
+            <li>Xin chào: <a href="#" style="color:#E4292F">@sessionUser.UserName</a> </li>
+            @foreach (var item in LoginMenu)
+            {
+                <li><a href="@item.Link/@sessionUser.UserID" target="@item.Target">@item.Text</a></li>
+            }
+            @if (sessionUserInfo.Level == 1 || sessionUserInfo.Level == 2)
+            {
+                if (sessionUserInfo.StatusShop == true)
+                {
+                    foreach (var item in loginmerchant)
+                    {
+                        <li><a href="@item.Link" target="@item.Target"> @item.Text </a></li>
+                    }
+                }
+                else
+                {
+                    <li><a href="#" target="_self">Shop chưa khả dụng </a></li>
+                }
+            }
+            else
+            {
+                foreach (var item in registermerchant)
+                {
+                    <li><a href="@item.Link" target="@item.Target"> @item.Text </a></li>
+                }
+            }
+            <li>@Html.ActionLink("Đăng xuất", "Logout", "User")</li>
+        </ul>
+    }
+</div>
+<div class="clear"></div>

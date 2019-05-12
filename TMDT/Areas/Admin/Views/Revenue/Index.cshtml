@@ -1,0 +1,109 @@
+﻿@model PagedList.IPagedList<Model.EF.BillAd>
+@using PagedList.Mvc;
+@{
+    /**/
+
+    ViewBag.Title = "Quản lý Doanh thu";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    string date = "";
+    if (ViewBag.SearchDate != null)
+    {
+        var vbdate = (DateTime)ViewBag.SearchDate;
+        date = vbdate.ToString("yyyy-MM-dd");
+    }
+}
+@section header{
+    Thông kê hóa đơn
+}
+@section css{
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+}
+@section script{
+    <!-- Page level plugins -->
+    <script src="~/assets/Admin/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/assets/Admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    @*<script type="text/javascript">
+        $(".DeleteLink").click(function () {
+            window.location.href = "/Admin/Products"
+        });
+    </script>*@
+    <script type="text/javascript">
+        $("#searchDate").change(function () {
+            var date = $(this).val();
+            window.location.href = "/Admin/Revenue?searchDate=" + date;
+        });
+    </script>
+    @*<script type="text/javascript">
+        $(".BlockLink").click(function () {
+            window.location.href = "/Admin/Products/Index"
+        });
+        $(".AcceptProductLink").click(function () {
+            window.location.href = "/Admin/Products/Index"
+        });
+    </script>*@
+}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Danh sách hóa đơn</h6>
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("Index", "Revenue", FormMethod.Get))
+        {
+            <div class="row">
+                <div class="col-lg-2">
+                    <input class="form-control bg-light border-0 small" type="text" placeholder="Mã hóa đơn,ID (bỏ #)" value="@ViewBag.SearchID" name="searchID" />
+                </div>
+                <div>
+                    <button class="btn btn-primary" type="submit"><i class="fas fa-search fa-sm"></i></button>
+                </div>
+                <div class="col-lg-4">
+                    <input class="form-control bg-light border-0 small" type="text" placeholder="Tên khách hàng,điện thoại,mã giao dịch" value="@ViewBag.SearchString" name="searchString" />
+                </div>
+                <div>
+                    <button class="btn btn-primary" type="submit"><i class="fas fa-search fa-sm"></i></button>
+                </div>
+                <div class="col-lg-3"></div>
+                <div class="col-lg-2">
+                    <input id="searchDate" class="form-control bg-light border-0 small" type="date" value="@date" />
+                </div>
+            </div>
+        }
+        <hr />
+        <div class="table-responsive">
+            <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                <table class="table table-bordered dataTable table-striped" id="dataTable" width="100%" cellspacing="0" role="grid">
+                    <thead>
+                        <tr class="text-center">
+                            <th>ID</th>
+                            <th>Mã hóa đơn</th>
+                            <th>Tên khách hàng</th>
+                            <th>Số điện thoại</th>
+                            <th>Địa chỉ</th>
+                            <th>Mã giao dịch</th>
+                            <th>Số tiền (VNĐ)</th>
+                            <th>Ngày tạo</th>
+                            <th>#</th>
+                        </tr>
+                    </thead>
+                    <tbody style="font-size:14px;">
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>#@item.ID</td>
+                                <td>#@item.IdOrderAd</td>
+                                <td>@item.NameCus</td>
+                                <td>@item.Phone</td>
+                                <td>@item.Address</td>
+                                <td>#@item.TradingCode</td>
+                                <td>@item.Money.GetValueOrDefault(0).ToString("N0")</td>
+                                <td>@String.Format("{0:dd-MM-yyyy}", @item.CreateDate)</td>
+                                <td><a href="/Admin/Advertisement/ListAd?searchID=@item.OrderAdvertisement.IDAd">Chi tiết</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = ViewBag.SearchString, @searchDate = ViewBag.SearchDate, @searchID = ViewBag.SearchID }))
+            </div>
+        </div>
+    </div>
+</div>

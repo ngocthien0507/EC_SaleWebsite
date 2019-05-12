@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Đặt hàng thành công";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var user = (TMDT.Common.UserLogin)Session[TMDT.Common.CommonConstants.USER_SESSION];
+}
+<script type="text/javascript">
+    function Redirect() {
+        window.location = "/lich-su-mua-hang/@user.UserID";
+    }
+    setTimeout('Redirect()', 3000);
+</script>
+
+<div class="alert alert-success">Bạn vừa đặt hàng thành công</div>
+

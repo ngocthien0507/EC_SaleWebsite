@@ -1,0 +1,85 @@
+﻿@model PagedList.IPagedList<Model.EF.Product>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Cửa hàng của tôi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section jsFooter{
+    <script src="~/Scripts/jsController/ShopManager.js"></script>
+}
+<div class="content">
+    <div class="content_top">
+        <div class="heading">
+            <h3>Sản phẩm đã đăng</h3>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="section group row float-right text-white">
+        <a href="/quan-ly-shop" class="btnProduct btn btn-primary">Xem sản phẩm</a>
+        <a href="/quan-ly-shop/dang-san-pham" class="btnCreate btn btn-info">Đăng sản phẩm</a>
+        <a href="/quan-ly-shop/quan-ly-don-hang" class="btnOrder btn btn-danger">Xem đơn hàng</a>
+    </div>
+    <div class="clear"></div>
+    @using (Html.BeginForm("Index", "ShopManager", FormMethod.Get))
+    {
+        <div class="row">
+            <div class="col-lg-4">
+                <input class="form-control small" type="text" placeholder="Tên sản phẩm,Loại sản phẩm" value="@ViewBag.SearchString" name="searchString" />
+            </div>
+            <div>
+                <button class="btn btn-primary" type="submit"><i class="fas fa-search fa-sm"></i></button>
+            </div>
+        </div>
+    }
+    <div class="section group">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr style="color:white;background-color:#383838">
+                    <th>Tên</th>
+                    <th>Loại</th>
+                    <th width="120" style="text-align:center;">Ảnh</th>
+                    <th>Đơn giá</th>
+                    <th>Tình trạng</th>
+                    <th>#</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr style="font-size:medium;">
+                        <td>@item.Name</td>
+                        <td>@item.ProductCategory.Name</td>
+                        <td><img src="@item.Image" width="80" height="50" /></td>
+                        <td>@item.Price.GetValueOrDefault(0).ToString("N0")VNĐ</td>
+                        @if (item.Status == true)
+                        {
+                            <td style="color:green">Đã duyệt</td>
+
+                        }
+                        else
+                        {
+                            if (item.IsHidden == 1)
+                            {
+                                <td style="color:dimgray">Đã ẩn</td>
+                            }
+                            else
+                            {
+                                <td style="color:orangered">Đang chờ duyệt</td>
+                            }
+                        }
+
+                        @if (item.IsHidden != 1)
+                        {
+                            <td>
+                                <a href="#" class="btn-hidden" data-id="@item.ID">Ẩn</a>
+                                |
+                                <a href="/ShopManager/EditInfo/@item.ID">Sửa</a>
+                            </td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))
+    </div>
+</div>

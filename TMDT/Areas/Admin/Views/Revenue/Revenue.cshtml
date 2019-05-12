@@ -1,0 +1,191 @@
+﻿@model PagedList.IPagedList<Model.EF.BillAd>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Revenue";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var moneyYear = (decimal?)ViewBag.RevenueYear;
+    var moneyMonth = (decimal?)ViewBag.RevenueMonth;
+    var moneyTotal = (decimal?)ViewBag.RevenueTotal;
+    var moneyMerchant = (decimal?)ViewBag.RevenueMerchant;
+    var month = (int)ViewBag.Month;
+    var year = (int)ViewBag.Year;
+    var searchString = ViewBag.SearchString;
+}
+@section header{
+    Doanh thu / Biểu đồ
+}
+@section script{
+    <script type="text/javascript">
+        var currentYear = new Date().getFullYear();
+        for (i = currentYear; i >= 1998; i--) {
+            var optn = document.createElement("OPTION");
+            optn.text = i;
+            optn.value = i;
+            if (i == @year) {
+                optn.selected = true;
+            }
+
+            document.getElementById('year').options.add(optn);
+        }
+    </script>
+    <script type="text/javascript">
+        var d = new Date();
+        var monthArray = new Array();
+        monthArray[1] = "Tháng 1";
+        monthArray[2] = "Tháng 2";
+        monthArray[3] = "Tháng 3";
+        monthArray[4] = "Tháng 4";
+        monthArray[5] = "Tháng 5";
+        monthArray[6] = "Tháng 6";
+        monthArray[7] = "Tháng 7";
+        monthArray[8] = "Tháng 8";
+        monthArray[9] = "Tháng 9";
+        monthArray[10] = "Tháng 10";
+        monthArray[11] = "Tháng 11";
+        monthArray[12] = "Tháng 12";
+        for (m = 1; m <= 12; m++) {
+            var optn = document.createElement("OPTION");
+            optn.text = monthArray[m];
+            // server side month start from one
+            optn.value = (m);
+
+            // if june selected
+            if (m == @month) {
+                optn.selected = true;
+            }
+
+            document.getElementById('month').options.add(optn);
+        }
+    </script>
+}
+@section css{
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+}
+@using (Html.BeginForm("Revenue", "Revenue", FormMethod.Get))
+{
+    <div class="row">
+        <div class="col-lg-2">
+            <select name="month" style="border-left-color:red;" class="form-control small" id="month">
+                <option value=""> Chọn tháng </option>
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <select name="year" style="border-left-color:red;" class="form-control small" id="year">
+                <option value=""> Chọn năm </option>
+            </select>
+        </div>
+        <div>
+            <button class="btn btn-primary" type="submit"><i class="fas fa-search fa-sm"></i></button>
+        </div>
+        <div class="col-lg-3"></div>
+        <div class="col-lg-4">
+            <input class="form-control small" type="text" placeholder="Tên khách hàng,điện thoại,mã giao dịch" value="@ViewBag.SearchString" name="searchString" />
+        </div>
+        <div>
+            <button class="btn btn-primary" type="submit"><i class="fas fa-search fa-sm"></i></button>
+        </div>
+    </div>
+}
+<hr />
+<div class="row">
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">LỢI NHUẬN THÁNG @month</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@moneyMonth.GetValueOrDefault(0).ToString("N0") VNĐ</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Earnings (Year) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">LỢI NHUẬN NĂM @year</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@moneyYear.GetValueOrDefault(0).ToString("N0") VNĐ</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Earnings (Total) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-info shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">TỔNG LỢI NHUẬN</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@moneyTotal.GetValueOrDefault(0).ToString("N0") VNĐ</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-hand-holding-usd fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Pending Requests Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Lợi nhuận theo đối tác</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@moneyMerchant.GetValueOrDefault(0).ToString("N0") VNĐ</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-comments fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="table-responsive">
+    <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+        <table class="table table-bordered dataTable table-striped" id="dataTable" width="100%" cellspacing="0" role="grid">
+            <thead>
+                <tr class="text-center">
+                    <th>ID</th>
+                    <th>Mã hóa đơn</th>
+                    <th>Tên khách hàng</th>
+                    <th>Số điện thoại</th>
+                    <th>Địa chỉ</th>
+                    <th>Mã giao dịch</th>
+                    <th>Số tiền (VNĐ)</th>
+                    <th>Ngày tạo</th>
+                    <th>#</th>
+                </tr>
+            </thead>
+            <tbody style="font-size:14px;">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>#@item.ID</td>
+                        <td>#@item.IdOrderAd</td>
+                        <td>@item.NameCus</td>
+                        <td>@item.Phone</td>
+                        <td>@item.Address</td>
+                        <td>#@item.TradingCode</td>
+                        <td>@item.Money.GetValueOrDefault(0).ToString("N0")</td>
+                        <td>@String.Format("{0:dd-MM-yyyy}", @item.CreateDate)</td>
+                        <td><a href="/Admin/Advertisement/ListAd?searchID=@item.OrderAdvertisement.IDAd">Chi tiết</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        @Html.PagedListPager(Model, page => Url.Action("Revenue", new { page, @searchString = ViewBag.SearchString, @searchDate = ViewBag.SearchDate, @searchID = ViewBag.SearchID }))
+    </div>
+</div>

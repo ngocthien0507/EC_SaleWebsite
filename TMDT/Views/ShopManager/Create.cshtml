@@ -1,0 +1,109 @@
+﻿@model Model.EF.Product
+@{
+    ViewBag.Title = "Tạo sản phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section jsFooter{
+    <script>
+        $(function () {
+            //click button chọn ảnh
+            $('#btnUpload').on('click', function () {
+                $('#fileupload').trigger('click');
+            });
+            // bắt sự kiện change data của fileupload
+            $('#fileupload').change(function () {
+                //kiểm tra trình duyệt có hỗ trợ formData object không?
+                if (window.FormData !== undefined) {
+                    //lấy dữ liệu
+                    var fileUpload = $('#fileupload').get(0);
+                    var files = fileUpload.files;
+                    //tạo đối tượng fromData
+                    var formData = new FormData();
+                    //đưa data vào form
+                    formData.append('file', files[0]);
+                    $.ajax(
+                        {
+                            type: 'POST',
+                            url: '/ShopManager/UploadPicture',
+                            contentType: false, // không có header
+                            processData: false, // không xử lý dữ liệu
+                            data: formData,
+                            success: function (urlImage) {
+                                $('#pictureUpload').attr('src', urlImage);
+                                $('#txtImageProduct').val(urlImage);
+                            },
+                            error: function (err) {
+                                alert('Có lỗi khi upload ảnh: ' + err.statusText)
+                            }
+                        });
+                }
+            });
+        });
+
+    </script> <!--script upload anh-->
+    }
+    <div class="content">
+        <div class="content_top">
+            <div class="heading">
+                <h3>Đăng sản phẩm</h3>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <hr />
+        <div class="section group row">
+            <div class="col-lg-7">
+                @using (Html.BeginForm("Create", "ShopManager", FormMethod.Post, new { @class = "product", @id = "formsubmit-admin" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.Label("", "Tên sản phẩm:", new { @style = "margin-left:5px;color: #3a3b45!important;margin-bottom:5px;" })
+                        @Html.TextBoxFor(model => model.Name, new { @class = "form-control form-control-user", @required = "true" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("", "Mô tả:", new { @style = "margin-left:5px;color: #3a3b45!important;margin-bottom:5px;" })
+                        @Html.TextBoxFor(model => model.Descriptions, new { @class = "form-control form-control-user", @placeholder = "Mô tả", @required = "true" })
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-5">
+                            @Html.Label("", "Ảnh sản phẩm:", new { @style = "margin-left:5px;color: #3a3b45!important;margin-bottom:5px;" })
+                            @Html.TextBoxFor(model => model.Image, new { @class = "form-control form-control-user", @id = "txtImageProduct", @readonly = "readonly", @placeholder = "Ảnh sản phẩm", @required = "true" })
+                        </div>
+                        <div class="col-lg-5">
+                            <input type="file" id="fileupload" accept="image/*" name="fileUpload" style="display:none;" />
+                            <input type="button" id="btnUpload" style="margin-top:25px;" value="Chọn ảnh" class="btn btn-success" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div id="PhoneMessage" class="text-danger"></div>
+                        @Html.Label("", "Loại sản phẩm:", new { @style = "margin-left:5px;color: #3a3b45!important;margin-bottom:5px;" })
+                        @Html.DropDownListFor(model => model.CategoryID, (SelectList)ViewBag.ListProductCategory, new { @class = "form-control form-control-user", @placeholder = "Sô điện thoại", @required = "true" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("", "Giá:", new { @style = "margin-left:5px;color: #3a3b45!important;margin-bottom:5px;" })
+                        @Html.TextBoxFor(model => model.Price, new { @class = "form-control form-control-user", @placeholder = "Giá sản phẩm (VND)", @required = "true" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("", "Số lượng:", new { @style = "margin-left:5px;color: #3a3b45!important;margin-bottom:5px;" })
+                        @Html.TextBoxFor(model => model.Quantity, new { @class = "form-control form-control-user", @placeholder = "Số lượng", @required = "true" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("", "Chi tiết sản phẩm:", new { @style = "margin-left:5px;color: #3a3b45!important;margin-bottom:5px;" })
+                        @Html.TextBoxFor(model => model.Detail, new { @class = "form-control form-control-user", @placeholder = "màu sắc,tính năng...", @required = "true" })
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Xác nhận" class="btn btn-primary btn-user btn-block" />
+                    </div>
+                }
+            </div>
+            <div class="col-lg-5">
+                <div>
+                    <img id="pictureUpload" width="300" />
+                </div>
+            </div>
+        </div>
+        <div>
+            <a href="/quan-ly-shop"><i class="fa fa-arrow-circle-left"></i> Quạy lại</a>
+        </div>
+    </div>
+

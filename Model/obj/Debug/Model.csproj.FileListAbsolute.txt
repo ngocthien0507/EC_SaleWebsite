@@ -1,0 +1,52 @@
+C:\Users\Thien\source\repos\TMDT\Model\bin\Debug\Model.dll.config
+C:\Users\Thien\source\repos\TMDT\Model\bin\Debug\Model.dll
+C:\Users\Thien\source\repos\TMDT\Model\bin\Debug\Model.pdb
+C:\Users\Thien\source\repos\TMDT\Model\bin\Debug\EntityFramework.dll
+C:\Users\Thien\source\repos\TMDT\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Thien\source\repos\TMDT\Model\bin\Debug\EntityFramework.xml
+C:\Users\Thien\source\repos\TMDT\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Thien\source\repos\TMDT\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\Thien\source\repos\TMDT\Model\obj\Debug\Model.csproj.CopyComplete
+C:\Users\Thien\source\repos\TMDT\Model\obj\Debug\Model.dll
+C:\Users\Thien\source\repos\TMDT\Model\obj\Debug\Model.pdb
+C:\Users\Nam Tran\Desktop\ProjectEC-master\Model\bin\Debug\Model.dll.config
+C:\Users\Nam Tran\Desktop\ProjectEC-master\Model\bin\Debug\Model.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\Model\bin\Debug\Model.pdb
+C:\Users\Nam Tran\Desktop\ProjectEC-master\Model\bin\Debug\EntityFramework.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\Model\bin\Debug\EntityFramework.xml
+C:\Users\Nam Tran\Desktop\ProjectEC-master\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nam Tran\Desktop\ProjectEC-master\Model\obj\Debug\Model.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\Model\obj\Debug\Model.pdb
+C:\Users\Nam Tran\source\repos\ProjectEC-master\Model\bin\Debug\Model.dll.config
+C:\Users\Nam Tran\source\repos\ProjectEC-master\Model\bin\Debug\Model.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\Model\bin\Debug\Model.pdb
+C:\Users\Nam Tran\source\repos\ProjectEC-master\Model\bin\Debug\EntityFramework.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\Model\bin\Debug\PagedList.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\Model\bin\Debug\PagedList.Mvc.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\Model\bin\Debug\EntityFramework.xml
+C:\Users\Nam Tran\source\repos\ProjectEC-master\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nam Tran\source\repos\ProjectEC-master\Model\bin\Debug\PagedList.xml
+C:\Users\Nam Tran\source\repos\ProjectEC-master\Model\bin\Debug\PagedList.Mvc.xml
+C:\Users\Nam Tran\source\repos\ProjectEC-master\Model\obj\Debug\Model.csprojAssemblyReference.cache
+C:\Users\Nam Tran\source\repos\ProjectEC-master\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\Nam Tran\source\repos\ProjectEC-master\Model\obj\Debug\Model.csproj.CopyComplete
+C:\Users\Nam Tran\source\repos\ProjectEC-master\Model\obj\Debug\Model.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\Model\obj\Debug\Model.pdb
+C:\Users\Thien\Desktop\ProjectEC\Model\bin\Debug\Model.dll.config
+C:\Users\Thien\Desktop\ProjectEC\Model\bin\Debug\Model.dll
+C:\Users\Thien\Desktop\ProjectEC\Model\bin\Debug\Model.pdb
+C:\Users\Thien\Desktop\ProjectEC\Model\bin\Debug\EntityFramework.dll
+C:\Users\Thien\Desktop\ProjectEC\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Thien\Desktop\ProjectEC\Model\bin\Debug\PagedList.dll
+C:\Users\Thien\Desktop\ProjectEC\Model\bin\Debug\PagedList.Mvc.dll
+C:\Users\Thien\Desktop\ProjectEC\Model\bin\Debug\EntityFramework.xml
+C:\Users\Thien\Desktop\ProjectEC\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Thien\Desktop\ProjectEC\Model\bin\Debug\PagedList.xml
+C:\Users\Thien\Desktop\ProjectEC\Model\bin\Debug\PagedList.Mvc.xml
+C:\Users\Thien\Desktop\ProjectEC\Model\obj\Debug\Model.csprojAssemblyReference.cache
+C:\Users\Thien\Desktop\ProjectEC\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\Thien\Desktop\ProjectEC\Model\obj\Debug\Model.csproj.CopyComplete
+C:\Users\Thien\Desktop\ProjectEC\Model\obj\Debug\Model.dll
+C:\Users\Thien\Desktop\ProjectEC\Model\obj\Debug\Model.pdb

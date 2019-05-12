@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "Not Activated";
+    Layout = "~/Views/Shared/_LayoutOutside.cshtml";
+    var userinfo = (Model.EF.Account)Session[TMDT.Common.CommonConstants.USER_INFO_SESSION];
+    if (userinfo == null || userinfo.Status==true)
+    {
+        <script type="text/javascript">
+            window.location.href = "/"
+        </script>
+    }
+}
+@section script{
+    <script type="text/javascript">
+        var common = {
+            init: function () {
+                common.registerEvent();
+            },
+
+            registerEvent: function () {
+                $('#ActivationDenied').off('click').on('click', function (e) {
+                    e.preventDefault();
+                    $.ajax({
+                        url: '/User/DeleteSessionUserInfo',
+                        dataType: 'json',
+                        type: 'POST',
+                        success: function (res) {
+                            if (res.status == true) {
+                                window.location.href = "/";
+                            }
+                        }
+                    });
+                });
+            }
+        }
+        common.init();
+    </script>
+}
+
+<div class="container">
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+        <div class="col-xl-10 col-lg-12 col-md-9">
+            <div class="col-xl-10 col-lg-12 col-md-9">
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row justify-content-center ">
+                            <div class="col-lg-8 ">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Tài khoản @if(userinfo!=null)
+                                        {@userinfo.Username} chưa kích hoạt</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <a class="btn btn-primary btn-user btn-block" href="/kich-hoat-tk">Kích hoạt tài khoản</a>
+                            </div>
+                            <div class="col-sm-6">
+                                <a class="btn btn-primary btn-user btn-block" id="ActivationDenied" href="/">Trở về trang chủ</a>
+                                <!--Xoa session user_info-->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

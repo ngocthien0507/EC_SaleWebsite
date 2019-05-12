@@ -1,0 +1,167 @@
+﻿@model PagedList.IPagedList<Model.EF.advertisement>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Quản lý quảng cáo";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var ListLocationAd = (List<Model.EF.LocationAd>)ViewBag.ListLocationAd;
+
+}
+@section header{
+    Quản lý quảng cáo
+}
+@section css{
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+}
+@section script{
+    <!-- Page level plugins -->
+    <script src="~/assets/Admin/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/assets/Admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript">
+        $("#SelectLocation").change(function () {
+            var idLocation = $(this).val();
+            window.location.href = "/Admin/Advertisement/ListAd?searchLocation=" + idLocation;
+        });
+        $("#SelectStatus").change(function () {
+            var status = $(this).val();
+            window.location.href = "/Admin/Advertisement/ListAd?searchStatus=" + status;
+        });
+    </script>
+    @if (ViewBag.searchStatus != null)
+    {
+        <script>
+            localStorage.setItem("Select1", "@ViewBag.searchStatus");
+            $('#SelectStatus').find('option').each(function (i, e) {
+                if ($(e).val() == localStorage.getItem("Select1")) {
+                    $('#SelectStatus').prop('selectedIndex', i);
+                }
+            });
+        </script>
+    }
+    @*<script type="text/javascript">
+            //$(".RefuseLink").click(function () {
+            //    window.location.href = "/Admin/Advertisement/Index"
+            //});
+            //$(".AcceptedLink").click(function () {
+            //    window.location.href = "/Admin/Advertisement/Index"
+            //});
+        </script>*@
+}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Danh sách quảng cáo</h6>
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("ListAd", "Advertisement", FormMethod.Get))
+        {
+            <input type="hidden" name="searchID" value="" />
+            <div class="row">
+                <div class="col-lg-3">
+                    <select name="searchLocation" id="SelectLocation" class="form-control">
+                        <option value="">Loại Banner</option>
+                        @foreach (var location in ListLocationAd)
+                        {
+                            if (location.ID == ViewBag.SearchLocation)
+                            {
+                                <option value="@location.ID" selected="selected">@location.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@location.ID">@location.Name</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="col-lg-3">
+                    <select name="searchStatus" id="SelectStatus" class="form-control">
+                        <option value="">Tình trạng</option>
+                        <option value="true">Đã duyệt</option>
+                        <option value="false">Hủy hoặc hết hạn</option>
+                        <option value="3">Chờ thanh toán</option>
+                        <option value="0">Chưa duyệt</option>
+                    </select>
+                </div>
+                <div class="col-lg-4">
+                    <input class="form-control bg-light border-0 small" type="text" placeholder="Tên quảng cáo, vị trí, tên tài khoản" value="@ViewBag.SearchName" name="searchName" />
+                </div>
+                <div>
+                    <button class="btn btn-primary" type="submit"><i class="fas fa-search fa-sm"></i></button>
+                </div>
+            </div>
+        }
+        <hr />
+        <div class="table-responsive">
+            <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                <table class="table table-bordered dataTable table-striped" id="dataTable" width="100%" cellspacing="0" role="grid">
+                    <thead>
+                        <tr class="text-center">
+                            <th>ID</th>
+                            <th>Tên quảng cáo</th>
+                            <th>Khách hàng</th>
+                            <th width="120" style="text-align:center;">Ảnh</th>
+                            <th>Vị trí</th>
+                            <th>Ngày bắt đầu</th>
+                            <th>Ngày kết thúc</th>
+                            <th>Tình trạng</th>
+                            <th>#</th>
+                        </tr>
+                    </thead>
+                    <tbody style="font-size:14px;">
+                        @foreach (var item in Model)
+                        {
+                            var date = item.EndDate.Value.Day - DateTime.Now.Day;
+                            var checkdate = item.ActiveDate.Value.Day - DateTime.Now.Day;
+                            <tr>
+                                <td>#@item.ID</td>
+                                <td>@item.Content</td>
+                                <td>@item.Account.Username</td>
+                                @if (item.Location != "SLIDE")
+                                {
+                                    <td style="text-align:center;"><a href="@item.Image"><img src="@item.Image" width="50" height="80" /></a></td>
+                                }
+                                else
+                                {
+                                    <td><a href="@item.Image"><img src="@item.Image" width="100" height="50" /></a></td>
+                                }
+                                <td>@item.LocationAd.Name</td>
+                                <td>@String.Format("{0:dd/MM/yyyy}", @item.ActiveDate)</td>
+                                <td>@String.Format("{0:dd/MM/yyyy}", @item.EndDate)</td>
+                                @if (item.Status == true)
+                                {
+                                    if (checkdate > 0)
+                                    {
+                                        <td style="color:green">Chưa tới ngày đăng</td>
+                                        <td><a href="/Admin/Advertisement/EditAd/@item.ID">Sửa</a></td>
+                                    }
+                                    else
+                                    {
+                                        <td style="color:green">Còn lại @date ngày</td>
+                                        <td><a href="/Admin/Advertisement/EditAd/@item.ID">Sửa</a></td>
+                                    }
+                                }
+                                else
+                                {
+                                    if (item.OrderAdvertisements.Where(x => x.IDAd == item.ID).SingleOrDefault().Status == 1)
+                                    {
+                                        <td style="color:red">Hết hạn</td>
+                                        <td>#</td>
+                                    }
+                                    else if (item.OrderAdvertisements.Where(x => x.IDAd == item.ID).SingleOrDefault().Status == 2)
+                                    {
+                                        <td style="color:gray">Đã hủy</td>
+                                    }
+                                    else
+                                    {
+                                        <td style="color:blue">Chưa xử lý</td>
+                                        <td><a href="/Admin/Advertisement/EditAd/@item.ID">Sửa</a></td>
+                                    }
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                @Html.PagedListPager(Model, page =>
+           Url.Action("Index", new { page, @searchStatus = ViewBag.SearchStatus, @searchName = ViewBag.SearchName, @searchLocation = ViewBag.SearchLocation }))
+            </div>
+        </div>
+    </div>
+</div>

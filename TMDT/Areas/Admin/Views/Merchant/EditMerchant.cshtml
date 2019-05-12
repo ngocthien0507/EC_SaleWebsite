@@ -1,0 +1,96 @@
+﻿@model Model.EF.Account
+@{
+    ViewBag.Title = "Chỉnh sửa cửa hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section header{
+    Chỉnh sửa thông tin cửa hàng
+}
+@section script{
+    <script src="~/assets/Admin/jsController/Admin-User.js"></script>
+    <script>
+        $(function () {
+            //click button chọn ảnh
+            $('#btnUpload').on('click', function () {
+                $('#fileupload').trigger('click');
+            });
+            // bắt sự kiện change data của fileupload
+            $('#fileupload').change(function () {
+                //kiểm tra trình duyệt có hỗ trợ formData object không?
+                if (window.FormData !== undefined) {
+                    //lấy dữ liệu
+                    var fileUpload = $('#fileupload').get(0);
+                    var files = fileUpload.files;
+                    //tạo đối tượng fromData
+                    var formData = new FormData();
+                    //đưa data vào form
+                    formData.append('file', files[0]);
+                    $.ajax(
+                        {
+                            type: 'POST',
+                            url: '/User/UploadPicture',
+                            contentType: false, // không có header
+                            processData: false, // không xử lý dữ liệu
+                            data: formData,
+                            success: function (urlImage) {
+                                $('#pictureUpload').attr('src', urlImage);
+                                $('#txtImageCMND').val(urlImage);
+                            },
+                            error: function (err) {
+                                alert('Có lỗi khi upload ảnh: ' + err.statusText)
+                            }
+                        });
+                }
+            });
+        });
+
+    </script> <!--script upload anh-->
+}
+<div class="row">
+    <div class="col-lg-7">
+        <div>
+            <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Sửa thông tin cửa hàng</h1>
+            </div>
+            @using (Html.BeginForm("EditMerchant", "Merchant", FormMethod.Post, new { @class = "user", @id = "formsubmit-admin" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model=>model.Username , new { @style= "margin-left:5px;color: #3a3b45!important;" })
+                    @Html.TextBoxFor(model => model.Username, new { @class = "form-control form-control-user", @readonly = "readonly" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ShopName, new { @style = "margin-left:5px;color: #3a3b45!important;" })
+                    @Html.TextBoxFor(model => model.ShopName, new { @class = "form-control form-control-user", @placeholder = "Tên cửa hàng" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CMND, new { @style = "margin-left:5px;color: #3a3b45!important;" })
+                    @Html.TextBoxFor(model => model.CMND, new { @class = "form-control form-control-user", @placeholder = "CMND/Thẻ căn cước" })
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-5">
+                        @Html.TextBoxFor(model => model.ImgCMND, new { @class = "form-control form-control-user", @id = "txtImageCMND", @placeholder = "Ảnh CMND(bắt buộc)" })
+                    </div>
+                    <div class="col-lg-5">
+                        <input type="file" id="fileupload" accept="image/*" name="fileUpload" style="display:none;" />
+                        <input type="button" id="btnUpload" style="margin-top:5px;" value="Chọn ảnh" class="btn btn-success" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <img id="pictureUpload" width="300" />
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ShopAddress, new { @style = "margin-left:5px;color: #3a3b45!important;" })
+                    @Html.TextBoxFor(model => model.ShopAddress, new { @class = "form-control form-control-user", @placeholder = "Địa chỉ" })
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Cập nhật" class="btn btn-primary btn-user btn-block" />
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

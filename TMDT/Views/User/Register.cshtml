@@ -1,0 +1,122 @@
+﻿@model TMDT.Models.RegisterModel
+@using BotDetect.Web.Mvc;
+<link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl"
+      rel="stylesheet" type="text/css" />
+@{ MvcCaptcha registerCaptcha = new MvcCaptcha("registerCaptcha"); }
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Đăng ký</title>
+    <!-- Custom fonts for this template-->
+    <link href="~/assets/Admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="~/assets/Admin/css/sb-admin-2.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-primary">
+    <div class="container">
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            @if (ViewBag.RegisterSuccess != null)
+                            {
+                                <div class="alert alert-success h4 text-gray-900 mb-4">@ViewBag.RegisterSuccess</div>
+                            }
+                            else
+                            {
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                                </div>
+                                using (Html.BeginForm("Register", "User", FormMethod.Post, new { @class = "user", @id = "formsubmit-admin" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <div class="form-group">
+                                        <div id="UsernameMessage" class="text-danger"></div>
+                                        @Html.TextBoxFor(model => model.Username, new { @class = "form-control form-control-user", @id = "username", @placeholder = "Tài khoản", @required = "true" })
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">@Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })</div>
+                                        <div class="col-sm-6">@Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })</div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            @Html.PasswordFor(model => model.Password, new { @class = "form-control form-control-user", @placeholder = "Mật khẩu", @required = "true" })
+                                        </div>
+                                        <div class="col-sm-6">
+                                            @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control form-control-user", @placeholder = "Nhập lại mật khẩu", @required = "true" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(model => model.Name, new { @class = "form-control form-control-user", @placeholder = "Họ Tên", @required = "true" })
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0"><div id="PhoneMessage" class="text-danger"></div></div>
+                                        <div class="col-sm-6"><div id="EmailMessage" class="text-danger"></div></div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            @Html.TextBoxFor(model => model.Phone, new { @class = "form-control form-control-user", @id = "phone", @placeholder = "Sô điện thoại", @required = "true" })
+                                        </div>
+                                        <div class="col-sm-6">
+                                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control form-control-user", @id = "email", @type = "email", @placeholder = "Email", @required = "true" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(model => model.Address, new { @class = "form-control form-control-user", @placeholder = "Địa chỉ", @required = "true" })
+                                    </div>
+                                    <div class="form-group">
+                                        <!-- tạo captcha -->
+                                        @Html.Captcha(registerCaptcha)
+                                        <style>
+                                            #registerCaptcha_CaptchaImage {
+                                                border-radius:1rem;
+                                            }
+                                        </style>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            @Html.TextBox("CaptchaCode", "", new { @class = "form-control form-control-user", @placeholder = "Nhâp mã xác nhận", @required = "true" })
+                                        </div>
+                                        <div class="col-sm-6">
+                                            @Html.ValidationMessage("CaptchaCode", "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" value="Đăng ký" class="btn btn-primary btn-user btn-block" />
+                                    </div>
+                                }
+                                <hr>
+                                <div class="text-center">
+                                    <a class="small" href="/forgot-password">Quên mật khẩu?</a>
+                                </div>
+                                <div class="text-center">
+                                    <a class="small" href="/dang-nhap">Đã có tài khoản? Đăng nhập ngay!</a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/assets/Admin/vendor/jquery/jquery.min.js"></script>
+    <script src="~/assets/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="~/assets/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="~/assets/Admin/js/sb-admin-2.min.js"></script>
+    <script src="~/Scripts/jsController/User.js"></script>
+</body>
+</html>

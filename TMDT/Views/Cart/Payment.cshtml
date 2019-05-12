@@ -1,0 +1,63 @@
+﻿@model List<TMDT.Models.CartItem>
+@{
+    ViewBag.Title = "Thanh toán";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    decimal? tongtien = 0;
+    var UserInfo = (Model.EF.Account)Session[TMDT.Common.CommonConstants.USER_INFO_SESSION];
+}
+@section jsFooter{
+    <script src="~/assets/Client/js/CartController.js"></script>
+}
+<div class="content">
+    <div class="section group">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Tên sản phẩm</td>
+                    <td width="120" style="text-align:center;">Ảnh</td>
+                    <td width="120">Số lượng đặt</td>
+                    <td>Đơn giá</td>
+                    <td>Thành tiền</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr style="font-size:medium;">
+                        <td>@item.Product.Name</td>
+                        <td><img src="@item.Product.Image" width="100" height="50" /></td>
+                        <td><input readonly="readonly" width="100" style="text-align:center;" type="text" class="txtQuantity form-control" data-id="@item.Product.ID" value="@item.Quantity" /></td>
+                        <td>@item.Product.Price.GetValueOrDefault(0).ToString("N0")VNĐ</td>
+                        <td>@((item.Product.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0"))VNĐ</td>
+                        @{ tongtien += (item.Product.Price.GetValueOrDefault(0) * item.Quantity);}
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="section group row ">
+        <div class="col-md-6">
+            @using (Html.BeginForm("Payment", "Cart", FormMethod.Post))
+            {
+                <input type="hidden" value="@UserInfo.ID" name="customerID" />
+                <input type="hidden" value="@tongtien" name="TotalMoney" />
+                <div class="form-group">
+                    <label>Người nhận</label>
+                    <input value="@UserInfo.Name" name="shipName" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Điện thoại</label>
+                    <input value="@UserInfo.Phone" name="mobile" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Địa chỉ</label>
+                    <input value="@UserInfo.Address" name="address" class="form-control" />
+                </div>
+                <button type="submit" class="btn btn-outline-primary">Xác nhận đặt hàng</button>
+            }
+        </div>
+    </div>
+</div>
+<div>
+    <a href="/gio-hang"><i class="fa fa-arrow-circle-left"></i> Quạy lại</a>
+</div>

@@ -1,0 +1,118 @@
+﻿@model PagedList.IPagedList<Model.EF.TotalOrder>
+@using PagedList.Mvc;
+@{
+    /**/
+
+    ViewBag.Title = "Quản lý đơn hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section header{
+    Quản lý đơn hàng
+}
+@section css{
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+}
+@section script{
+    <!-- Page level plugins -->
+    <script src="~/assets/Admin/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/assets/Admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    @*<script type="text/javascript">
+            $(".DeleteLink").click(function () {
+                window.location.href = "/Admin/Products"
+            });
+        </script>*@
+}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Danh sách đơn hàng</h6>
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("Index", "Products", FormMethod.Get))
+        {
+            <div class="row">
+                <div class="col-lg-2">
+                    <input class="form-control bg-light border-0 small" type="text" placeholder="Mã đơn hàng" value="@ViewBag.SearchID" name="searchID" />
+                </div>
+                <div>
+                    <button class="btn btn-primary" type="submit"><i class="fas fa-search fa-sm"></i></button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <input class="form-control bg-light border-0 small" type="text" placeholder="Tên khách hàng, tên cửa hàng..." value="@ViewBag.SearchString" name="searchString" />
+                </div>
+                <div>
+                    <button class="btn btn-primary" type="submit"><i class="fas fa-search fa-sm"></i></button>
+                </div>
+            </div>
+        }
+        <hr />
+        <div class="table-responsive">
+            <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                <table class="table table-bordered dataTable table-striped" id="dataTable" width="100%" cellspacing="0" role="grid">
+                    <thead>
+                        <tr class="text-center">
+                            <th>Mã đơn hàng</th>
+                            <th>Ngày mua</th>
+                            <th>Sản phẩm</th>
+                            <th>Tổng tiền(VNĐ)</th>
+                            <th>Tình trạng</th>
+                            <th>#</th>
+                        </tr>
+                    </thead>
+                    <tbody style="font-size:13px;">
+                        @foreach (var item in Model)
+                        {
+                            int count = 0;
+                            foreach (var item1 in item.ShopOrders)
+                            {
+                                count += item1.OrderDetails.Count();
+                            }
+                            <tr>
+                                <td>#@item.ID</td>
+                                <td>@string.Format("{0:dd-MM-yyyy}", item.CreateDate)</td>
+                                @if (item.ShopOrders.Count() > 1)
+                                {
+                                    count -= 1;
+                                    <td>@item.ShopOrders.First().OrderDetails.First().Product.Name ..và @count sản phẩm khác</td>
+                                }
+                                else
+                                {
+                                    <td>@item.ShopOrders.First().OrderDetails.First().Product.Name</td>
+                                }
+                                <td>@item.TotalPrice.GetValueOrDefault(0).ToString("N0")</td>
+                                @if (item.Status == 0)
+                                {
+                                    <td style="color:blue;">Chưa liên lạc</td>
+                                    <td>
+                                        <a href="/Admin/Products/OrderDetail/@item.ID">Chi tiết</a>
+                                    </td>
+                                }
+                                else if (item.Status == 1)
+                                {
+                                    <td style="color:orange;">Đang vận chuyển</td>
+                                    <td>
+                                        <a href="/Admin/Products/OrderDetail/@item.ID">Chi tiết</a>
+                                    </td>
+                                }
+                                else if (item.Status == 2)
+                                {
+                                    <td style="color:green;">Giao hàng thành công</td>
+                                    <td>
+                                        <a href="/Admin/Products/OrderDetail/@item.ID">Chi tiết</a>
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td style="color:gray;">Đã hủy</td>
+                                    <td>#</td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                @Html.PagedListPager(Model, page => Url.Action("OrderManager", new { page, @searchString = ViewBag.SearchString, @searchID = ViewBag.SearchID }))
+            </div>
+        </div>
+    </div>
+</div>

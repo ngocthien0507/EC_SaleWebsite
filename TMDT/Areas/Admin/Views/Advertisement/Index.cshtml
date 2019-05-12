@@ -1,0 +1,146 @@
+﻿@model PagedList.IPagedList<Model.EF.OrderAdvertisement>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Quản lý quảng cáo";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var ListLocationAd = (List<Model.EF.LocationAd>)ViewBag.ListLocationAd;
+}
+@section header{
+    Quản lý quảng cáo
+}
+@section css{
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+}
+@section script{
+    <!-- Page level plugins -->
+    <script src="~/assets/Admin/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/assets/Admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript">
+        $("#SelectLocation").change(function () {
+            var idLocation = $(this).val();
+            window.location.href = "/Admin/Advertisement?searchLocation=" + idLocation;
+        });
+    </script>
+    <script type="text/javascript">
+        $(".RefuseLink").click(function () {
+            window.location.href = "/Admin/Advertisement/Index"
+        });
+        $(".AcceptedLink").click(function () {
+            window.location.href = "/Admin/Advertisement/Index"
+        });
+    </script>
+}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Danh sách yêu cầu</h6>
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("Index", "Advertisement", FormMethod.Get))
+        {
+            <div class="row">
+                <div class="col-lg-3">
+                    <select name="searchLocation" id="SelectLocation" class="form-control">
+                        <option value="">Phân loại</option>
+                        @foreach (var location in ListLocationAd)
+                        {
+                            if (location.ID == ViewBag.SearchLocation)
+                            {
+                                <option value="@location.ID" selected="selected">@location.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@location.ID">@location.Name</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="col-lg-4">
+                    <input class="form-control bg-light border-0 small" type="text" placeholder="Tìm kiếm theo tên tài khoản, tên quảng cáo" value="@ViewBag.SearchName" name="searchName" />
+                </div>
+                <div>
+                    <button class="btn btn-primary" type="submit"><i class="fas fa-search fa-sm"></i></button>
+                </div>
+            </div>
+        }
+        <hr />
+        <div class="table-responsive">
+            <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                <table class="table table-bordered dataTable table-striped" id="dataTable" width="100%" cellspacing="0" role="grid">
+                    <thead>
+                        <tr class="text-center">
+                            <th>Tên quảng cáo</th>
+                            <th>Khách hàng</th>
+                            <th width="120" style="text-align:center;">Ảnh</th>
+                            <th>Vị trí</th>
+                            <th>Ngày bắt đầu</th>
+                            <th>Ngày kết thúc</th>
+                            <th>Thành tiền</th>
+                            <th>Tình trạng</th>
+                            <th>#</th>
+                        </tr>
+                    </thead>
+                    <tbody style="font-size:14px;">
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.advertisement.Content</td>
+                                <td>@item.Account.Username</td>
+                                @if (item.advertisement.Location != "SLIDE")
+                                {
+                                    <td style="text-align:center;"><a href="@item.advertisement.Image"><img src="@item.advertisement.Image" width="50" height="80" /></a></td>
+                                }
+                                else
+                                {
+                                    <td><a href="@item.advertisement.Image"><img src="@item.advertisement.Image" width="100" height="50" /></a></td>
+                                }
+                                <td>@item.advertisement.LocationAd.Name</td>
+                                <td>@String.Format("{0:dd/MM/yyyy}", @item.StartDate)</td>
+                                <td>@String.Format("{0:dd/MM/yyyy}", @item.EndDate)</td>
+                                <td>@item.Price.GetValueOrDefault(0).ToString("N0")VNĐ</td>
+                                @if (item.Status == 1)
+                                {
+                                    <td style="color:green">Đã thanh toán</td>
+                                    <td></td>
+
+                                }
+                                else if (item.Status == 3)
+                                {
+                                    <td style="color:red">Đã duyệt(chưa thanh toán)</td>
+                                    <td>
+                                        <a href="/Admin/Advertisement/Payment/@item.ID">Thanh toán</a>
+                                        |
+                                        @Ajax.ActionLink("Hủy", "RefuseAd", new { id = item.ID }, new AjaxOptions
+                                           {
+                                               Confirm = "Bạn có muốn hủy quảng cáo này?",
+                                           }, new { @class = "RefuseLink" })
+                                    </td>
+                                }
+                                else if (item.Status == 0)
+                                {
+                                    <td style="color:darkblue">Chưa duyệt</td>
+                                    <td>
+                                        @Ajax.ActionLink("Duyệt", "Accepted", new { id = item.ID }, new AjaxOptions
+                                           {
+                                               Confirm = "Bạn có muốn duyệt quảng cáo này?",
+                                           }, new { @class = "AcceptedLink" })
+                                        |
+                                        @Ajax.ActionLink("Hủy", "RefuseAd", new { id = item.ID }, new AjaxOptions
+                                         {
+                                             Confirm = "Bạn có muốn hủy quảng cáo này?",
+                                         }, new { @class = "RefuseLink" })
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td style="color:gray">Đã hủy</td>
+                                    <td>#</td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchName = ViewBag.SearchName, @searchCate = ViewBag.SearchCate }))
+            </div>
+        </div>
+    </div>
+</div>

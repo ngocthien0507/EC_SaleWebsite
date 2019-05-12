@@ -1,0 +1,148 @@
+﻿@model PagedList.IPagedList<Model.EF.Account>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Quản lý tài khoản";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section header{
+    Quản lý tài khoản
+}
+@section css{
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+}
+@section script{
+    <!-- Page level plugins -->
+    <script src="~/assets/Admin/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/assets/Admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript">
+        $(".DeleteLink").click(function () {
+            window.location.href = "/Admin/Account"
+        });
+    </script>
+    <script type="text/javascript">
+        $("#SelectUserType").change(function () {
+            var type = $(this).val();
+            window.location.href = "/Admin/Account?searchString=" + type;
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var value = '@ViewBag.SearchString';
+            if (value == 'ListAll') {
+                $('#SelectUserType').val('ListAll');
+            }
+            else if (value == 'NomalUser') {
+                $('#SelectUserType').val('NomalUser');
+            }
+            else if (value == 'MerchantUser') {
+                $('#SelectUserType').val('MerchantUser');
+            }
+        });
+    </script>
+}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Danh sách tài khoản</h6>
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("Index", "Account", FormMethod.Get))
+        {
+            <div class="row">
+                <div class="col-lg-3">
+                    <select id="SelectUserType" class="form-control">
+                        <option value="ListAll">Phân loại</option>
+                        <option value="NomalUser">Người dùng thường</option>
+                        <option value="MerchantUser">Người bán hàng</option>
+                    </select>
+                </div>
+                <div class="col-lg-4">
+                    @if (ViewBag.SearchString == "ListAll" || ViewBag.SearchString == "NomalUser" || ViewBag.SearchString == "MerchantUser")
+                    {
+                        <input class="form-control bg-light border-0 small" type="text" placeholder="Search..." value="" name="searchString" />
+                    }
+                    else
+                    {
+                        <input class="form-control bg-light border-0 small" type="text" placeholder="Search..." value="@ViewBag.SearchString" name="searchString" />
+                    }
+                </div>
+                <div>
+                    <button class="btn btn-primary" type="submit"><i class="fas fa-search fa-sm"></i></button>
+                </div>
+                <div class="col-lg-2" style="margin-left:20px;">
+                    <a class="btn btn-success" href="/Admin/Account/Create">Tạo tài khoản</a>
+                </div>
+            </div>
+        }
+        <hr />
+        <div class="table-responsive">
+            <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                <table class="table table-bordered dataTable table-striped" id="dataTable" width="100%" cellspacing="0" role="grid">
+                    <thead>
+                        <tr class="text-center">
+                            <th>Tài khoản</th>
+                            <th>Tên người dùng</th>
+                            <th>Số điện thoại</th>
+                            <th>Tình Trạng</th>
+                            <th colspan="2">Cửa Hàng</th>
+                            <th>#</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Username</td>
+                                <td>@item.Name</td>
+                                <td>@item.Phone</td>
+                                @if (item.Status == true)
+                                {
+                                    <td style="color:green">Đã kích hoạt</td>
+                                }
+                                else
+                                {
+                                    <td style="color:red">Chưa kích hoạt</td>
+                                }
+                                @if (item.Level == 1 || item.Level == 2)
+                                {
+                                    if (item.StatusShop == true)
+                                    {
+                                        <td colspan="2" style="color:green">
+                                            Đã kích hoạt
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td style="color:red">
+                                            Chưa kích hoạt
+                                        </td>
+                                        <td>
+                                            <a href="/Admin/Merchant/UpdateStatus/@item.ID">
+                                                Kích hoạt
+                                                <i class="fas fa-fw fa-cog"></i>
+                                            </a>
+                                        </td>
+                                    }
+                                }
+                                else
+                                {
+                                    <td colspan="2">Không có</td>
+                                }
+                                <td id="row_@item.ID">
+                                    <a href="/Admin/Account/EditUser/@item.ID">Sửa</a>
+                                    |
+                                    @Ajax.ActionLink("Xóa", "Delete", new { id = item.ID }, new AjaxOptions
+                               {
+                                   Confirm = "Bạn có muốn xóa tài khoản này?",
+                                   OnComplete = "@('#row_" + item.ID + "').remove()",
+                                   HttpMethod = "Delete"
+                               }, new { @class = "DeleteLink" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))
+            </div>
+        </div>
+    </div>
+</div>

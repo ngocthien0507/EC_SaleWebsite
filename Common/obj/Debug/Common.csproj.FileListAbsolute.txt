@@ -1,0 +1,53 @@
+C:\Users\Thien\source\repos\TMDT\Common\bin\Debug\Common.dll
+C:\Users\Thien\source\repos\TMDT\Common\bin\Debug\Common.pdb
+C:\Users\Thien\source\repos\TMDT\Common\bin\Debug\Model.dll
+C:\Users\Thien\source\repos\TMDT\Common\bin\Debug\EntityFramework.dll
+C:\Users\Thien\source\repos\TMDT\Common\bin\Debug\Model.pdb
+C:\Users\Thien\source\repos\TMDT\Common\bin\Debug\Model.dll.config
+C:\Users\Thien\source\repos\TMDT\Common\bin\Debug\EntityFramework.xml
+C:\Users\Thien\source\repos\TMDT\Common\obj\Debug\Common.csprojAssemblyReference.cache
+C:\Users\Thien\source\repos\TMDT\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\Users\Thien\source\repos\TMDT\Common\obj\Debug\Common.csproj.CopyComplete
+C:\Users\Thien\source\repos\TMDT\Common\obj\Debug\Common.dll
+C:\Users\Thien\source\repos\TMDT\Common\obj\Debug\Common.pdb
+C:\Users\Nam Tran\Desktop\ProjectEC-master\Common\bin\Debug\Common.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\Common\bin\Debug\Common.pdb
+C:\Users\Nam Tran\Desktop\ProjectEC-master\Common\bin\Debug\Model.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\Common\bin\Debug\EntityFramework.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\Common\bin\Debug\Model.pdb
+C:\Users\Nam Tran\Desktop\ProjectEC-master\Common\bin\Debug\EntityFramework.xml
+C:\Users\Nam Tran\Desktop\ProjectEC-master\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\Nam Tran\Desktop\ProjectEC-master\Common\obj\Debug\Common.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\Common\obj\Debug\Common.pdb
+C:\Users\Nam Tran\source\repos\ProjectEC-master\Common\bin\Debug\Common.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\Common\bin\Debug\Common.pdb
+C:\Users\Nam Tran\source\repos\ProjectEC-master\Common\bin\Debug\Model.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\Common\bin\Debug\PagedList.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\Common\bin\Debug\PagedList.Mvc.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\Common\bin\Debug\EntityFramework.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\Common\bin\Debug\Model.pdb
+C:\Users\Nam Tran\source\repos\ProjectEC-master\Common\bin\Debug\Model.dll.config
+C:\Users\Nam Tran\source\repos\ProjectEC-master\Common\bin\Debug\PagedList.xml
+C:\Users\Nam Tran\source\repos\ProjectEC-master\Common\bin\Debug\PagedList.Mvc.xml
+C:\Users\Nam Tran\source\repos\ProjectEC-master\Common\bin\Debug\EntityFramework.xml
+C:\Users\Nam Tran\source\repos\ProjectEC-master\Common\obj\Debug\Common.csprojAssemblyReference.cache
+C:\Users\Nam Tran\source\repos\ProjectEC-master\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\Users\Nam Tran\source\repos\ProjectEC-master\Common\obj\Debug\Common.csproj.CopyComplete
+C:\Users\Nam Tran\source\repos\ProjectEC-master\Common\obj\Debug\Common.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\Common\obj\Debug\Common.pdb
+C:\Users\Thien\Desktop\ProjectEC\Common\bin\Debug\Common.dll
+C:\Users\Thien\Desktop\ProjectEC\Common\bin\Debug\Common.pdb
+C:\Users\Thien\Desktop\ProjectEC\Common\bin\Debug\Model.dll
+C:\Users\Thien\Desktop\ProjectEC\Common\bin\Debug\PagedList.dll
+C:\Users\Thien\Desktop\ProjectEC\Common\bin\Debug\PagedList.Mvc.dll
+C:\Users\Thien\Desktop\ProjectEC\Common\bin\Debug\EntityFramework.dll
+C:\Users\Thien\Desktop\ProjectEC\Common\bin\Debug\Model.pdb
+C:\Users\Thien\Desktop\ProjectEC\Common\bin\Debug\Model.dll.config
+C:\Users\Thien\Desktop\ProjectEC\Common\bin\Debug\PagedList.xml
+C:\Users\Thien\Desktop\ProjectEC\Common\bin\Debug\PagedList.Mvc.xml
+C:\Users\Thien\Desktop\ProjectEC\Common\bin\Debug\EntityFramework.xml
+C:\Users\Thien\Desktop\ProjectEC\Common\obj\Debug\Common.csprojAssemblyReference.cache
+C:\Users\Thien\Desktop\ProjectEC\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\Users\Thien\Desktop\ProjectEC\Common\obj\Debug\Common.csproj.CopyComplete
+C:\Users\Thien\Desktop\ProjectEC\Common\obj\Debug\Common.dll
+C:\Users\Thien\Desktop\ProjectEC\Common\obj\Debug\Common.pdb

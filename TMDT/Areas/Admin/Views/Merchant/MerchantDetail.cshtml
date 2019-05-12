@@ -1,0 +1,78 @@
+﻿@model Model.EF.Account
+@{
+    ViewBag.Title = "Quản lý cửa hàng đối tác";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section header{
+    Thông tin cửa hàng @Model.ShopName
+}
+@section css{
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+}
+@section script{
+    <!-- Page level plugins -->
+    <script src="~/assets/Admin/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/assets/Admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript">
+        $(".BlockLink").click(function () {
+            window.location.href = "/Admin/Merchant/Index"
+        });
+    </script>
+    <script type="text/javascript">
+        $(".UpdateLink").click(function () {
+            window.location.href = "/Admin/Merchant/Index"
+        });
+    </script>
+}
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Danh sách tài khoản</h6>
+        </div>
+        <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-2" style="margin-left:20px;">
+                        <a class="btn btn-success" href="/Admin/Merchant/EditMerchant/@Model.ID">Chỉnh sửa thông tin</a>
+                    </div>
+                </div>
+            <hr />
+            <div class="table-responsive">
+                <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                    <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid">
+                        <thead>
+                            <tr>
+                                <th>ID Sản phẩm</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Loại</th>
+                                <th>Giá bán</th>
+                                <th>Ảnh</th>
+                                <th>Mô tả</th>
+                                <th>chi tiết</th>
+                                <th>Tình Trạng</th>
+                                <th>#</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>demo</td>
+                                <td>demo</td>
+                                <td>demo</td>
+                                <td>demo</td>
+                                <td>demo</td>
+                                <td>demo</td>
+                                <td>demo</td>
+                                <td>demo</td>
+                                <td id="row_@Model.ID">
+                                    <a href="#">Sửa</a>
+                                    |
+                                    <a href="#">Xóa</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>

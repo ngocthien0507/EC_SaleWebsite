@@ -1,0 +1,171 @@
+﻿@model Model.EF.advertisement
+@{
+    ViewBag.Title = "Tạo quảng cáo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var date = DateTime.Now;
+    var ListinfoAd = (List<Model.EF.LocationAd>)ViewBag.ListIfnoLocationAD;
+    var sessionMer = (Model.EF.Account)(Model.EF.Account)Session[TMDT.Common.CommonConstants.USER_INFO_SESSION];
+    if (sessionMer != null)
+    {
+        if (sessionMer.Level != 2)
+        {
+            <script type="text/javascript">
+                window.location.href = "/"
+            </script>
+        }
+    }
+    else
+    {
+        <script type="text/javascript">
+            window.location.href = "/"
+        </script>
+    }
+}
+@section jsFooter{
+    <script>
+        $(function () {
+            //click button chọn ảnh
+            $('#btnUpload').on('click', function () {
+                $('#fileupload').trigger('click');
+            });
+            // bắt sự kiện change data của fileupload
+            $('#fileupload').change(function () {
+                //kiểm tra trình duyệt có hỗ trợ formData object không?
+                if (window.FormData !== undefined) {
+                    //lấy dữ liệu
+                    var fileUpload = $('#fileupload').get(0);
+                    var files = fileUpload.files;
+                    //tạo đối tượng fromData
+                    var formData = new FormData();
+                    //đưa data vào form
+                    formData.append('file', files[0]);
+                    $.ajax(
+                        {
+                            type: 'POST',
+                            url: '/Advertisment/UploadPicture',
+                            contentType: false, // không có header
+                            processData: false, // không xử lý dữ liệu
+                            data: formData,
+                            success: function (urlImage) {
+                                $('#pictureUpload').attr('src', urlImage);
+                                $('#txtImageProduct').val(urlImage);
+                            },
+                            error: function (err) {
+                                alert('Có lỗi khi upload ảnh: ' + err.statusText)
+                            }
+                        });
+                }
+            });
+        });
+    </script> <!--script upload anh-->
+    <script>
+    $(function () {
+                $('#LocationAD').change(function () {
+                    var id = $(this).val();
+                    $('#StartDate').val("");
+                    $('#EndDate').val("");
+                    $('#TotalPrice').val("");
+                if (id == "SLIDE") {
+                    $('#pictureAd').attr('src', "/Data/Advertisment/SlideAdExample.jpg");
+                    $('#ShowPrice').val("@ListinfoAd.Where(x=>x.ID.Equals("SLIDE")).SingleOrDefault().Price.GetValueOrDefault(0).ToString("N0")");
+                    $('#AdPrice').val("@ListinfoAd.Where(x=>x.ID.Equals("SLIDE")).SingleOrDefault().Price");
+                    document.getElementById("SizeBanner").innerHTML = "Banner (độ phân giải đề nghị @ListinfoAd.Where(x=>x.ID.Equals("SLIDE")).SingleOrDefault().Size): ";
+                }
+                else if (id == "RIGHTAD") {
+                    $('#pictureAd').attr('src', "/Data/Advertisment/RightAdExample.jpg");
+                    $('#ShowPrice').val("@ListinfoAd.Where(x=>x.ID.Equals("RIGHTAD")).SingleOrDefault().Price.GetValueOrDefault(0).ToString("N0")");
+                    $('#AdPrice').val("@ListinfoAd.Where(x=>x.ID.Equals("RIGHTAD")).SingleOrDefault().Price");
+                    document.getElementById("SizeBanner").innerHTML = "Banner (độ phân giải đề nghị @ListinfoAd.Where(x=>x.ID.Equals("RIGHTAD")).SingleOrDefault().Size): ";
+                }
+                else {
+                    $('#pictureAd').attr('src', "/Data/Advertisment/LeftAdExample.jpg");
+                    $('#ShowPrice').val("@ListinfoAd.Where(x=>x.ID.Equals("LEFTAD")).SingleOrDefault().Price.GetValueOrDefault(0).ToString("N0")");
+                    $('#AdPrice').val("@ListinfoAd.Where(x=>x.ID.Equals("LEFTAD")).SingleOrDefault().Price");
+                    document.getElementById("SizeBanner").innerHTML = "Banner (độ phân giải đề nghị @ListinfoAd.Where(x=>x.ID.Equals("LEFTAD")).SingleOrDefault().Size): ";
+                }
+            });
+    });
+    </script>
+    <script src="~/Scripts/jsController/Advertisment.js"></script>
+}
+<div class="content">
+    <br />
+    <div class="section group row">
+        <div class="col-lg-7">
+            @using (Html.BeginForm("Create", "Advertisment", FormMethod.Post, new { @class = "advertisment", @id = "formsubmit-admin", @onsubmit = "clicked(event)" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.Label("", "Tên quảng cáo:", new { @style = "margin-left:5px;color: #3a3b45!important;margin-bottom:5px;" })
+                    @Html.TextBoxFor(model => model.Content, new { @class = "form-control form-control-user", @required = "true", @placeholder = "Vd: Thả ga du lịch..." })
+                </div>
+                <div class="form-group">
+                    @Html.Label("", "Link quảng cáo:", new { @style = "margin-left:5px;color: #3a3b45!important;margin-bottom:5px;" })
+                    @Html.TextBoxFor(model => model.Link, new { @class = "form-control form-control-user", @required = "true", @placeholder = "https://linkquangcao.abc" })
+                </div>
+                <div class="form-group">
+                    @Html.Label("", "Chọn vị trí banner:", new { @style = "margin-left:5px;color: #3a3b45!important;margin-bottom:5px;" })
+                    @Html.DropDownListFor(model => model.Location, (SelectList)ViewBag.ListLocation,
+                   new { @class = "form-control form-control-user", @required = "true" ,@id="LocationAD" })
+                </div>
+                <div class="form-group row">
+                    <label for="AdPrice" class="col-sm-2 col-form-label">Đơn giá:</label>
+                    <div class="col-sm-2">
+                        <input type="text" readonly class="form-control-plaintext" id="ShowPrice"
+                               value="@ListinfoAd.Where(x => x.ID.Equals("LEFTAD")).SingleOrDefault().Price.GetValueOrDefault(0).ToString("N0")">
+                        <input type="text" readonly class="invisible hide" id="AdPrice"
+                               value="@ListinfoAd.Where(x => x.ID.Equals("LEFTAD")).SingleOrDefault().Price">
+                    </div>
+                    <div class="col-sm-2 col-form-label">VNĐ/Ngày</div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-4">
+                        @Html.Label("", "Ngày bắt đầu:", new { @style = "margin-left:5px;color: #3a3b45!important;margin-bottom:5px;" })
+                        @Html.TextBoxFor(model => model.ActiveDate,
+           new { @type = "date", @Value = "", @id = "StartDate", @class = "form-control form-control-user", @required = "true" })
+                    </div>
+                    <div class="col-lg-4">
+                        @Html.Label("", "Ngày kết thúc:", new { @style = "margin-left:5px;color: #3a3b45!important;margin-bottom:5px;" })
+                        @Html.TextBoxFor(model => model.EndDate,
+new { @type = "date", @Value ="",@id = "EndDate", @class = "form-control form-control-user", @required = "true" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="TotalPrice" class="col-sm-3 col-form-label">Thành tiền:</label>
+                    <div class="col-sm-4">
+                        <input type="text" readonly class="form-control-plaintext" id="TotalPrice" value="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-9">
+                        @Html.Label("", "Banner (độ phân giải đề nghị " + ListinfoAd.Where(x => x.ID.Equals("LEFTAD")).SingleOrDefault().Size + "):", new { @style = "margin-left:5px;color: #3a3b45!important;margin-bottom:5px;", @id = "SizeBanner" })
+                        @Html.TextBoxFor(model => model.Image, new { @class = "form-control form-control-user", @id = "txtImageProduct", @readonly = "readonly", @placeholder = "Ảnh sản phẩm", @required = "true" })
+                    </div>
+                    <div class="col-lg-3">
+                        <input type="file" id="fileupload" accept="image/*" name="fileUpload" style="display:none;" />
+                        <input type="button" id="btnUpload" style="margin-top:25px;" value="Chọn ảnh" class="btn btn-success" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <img id="pictureUpload" width="300" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Gửi yêu cầu" class="btn btn-primary btn-user btn-block" />
+                </div>
+            }
+        </div>
+        <div class="col-lg-5">
+            <div>
+                <img id="pictureUpload" src="~/Data/Advertisment/LeftAdExample.jpg" width="500" />
+            </div>
+        </div>
+    </div>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</div>
+
+

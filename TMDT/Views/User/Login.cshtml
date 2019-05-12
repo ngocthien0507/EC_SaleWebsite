@@ -1,0 +1,57 @@
+﻿@model TMDT.Models.LoginModel
+@{
+    ViewBag.Title = "Đăng nhập";
+    Layout = "~/Views/Shared/_LayoutOutside.cshtml";
+}
+<div class="container">
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+        <div class="col-xl-10 col-lg-12 col-md-9">
+            <div class="col-xl-10 col-lg-12 col-md-9">
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        @if (Session[TMDT.Common.CommonConstants.ACTIVATED_USER_SUCCESS] != null)
+                                        {
+                                            <h1 class="alert alert-success h4 text-gray-900 mb-4">@Session[TMDT.Common.CommonConstants.ACTIVATED_USER_SUCCESS].ToString()</h1>
+                                            Session[TMDT.Common.CommonConstants.ACTIVATED_USER_SUCCESS] = null;
+                                        }
+                                        <h1 class="h4 text-gray-900 mb-4">Đăng nhập</h1>
+                                    </div>
+                                    @using (Html.BeginForm("Login", "User", FormMethod.Post))
+                                    {
+                                        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                                        <fieldset>
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(model => model.UserName, new { @class = "form-control form-control-user", @autofocus = "autofocus", @placeholder = "Enter Username..." })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.PasswordFor(model => model.PassWord, new { @class = "form-control form-control-user", @placeholder = "Password" })
+                                            </div>
+                                            <button type="submit" class="btn btn-primary btn-user btn-block">
+                                                Login
+                                            </button>
+                                            <hr>
+                                        </fieldset>
+                                    }
+                                    <hr>
+                                    <div class="text-center">
+                                        <a class="small" href="/quen-mat-khau">Quên mật khẩu?</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="small" href="/dang-ky">Tạo tài khoản ngay!</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

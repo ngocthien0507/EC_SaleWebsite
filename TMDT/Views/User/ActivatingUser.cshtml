@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "ActivatingUser";
+    Layout = "~/Views/Shared/_LayoutOutside.cshtml";
+    // kiểm tra tồn tại phiên khi điều hướng từ email kích hoạt
+    var userinfo = (Model.EF.Account)Session[TMDT.Common.CommonConstants.USER_INFO_SESSION];
+    if (userinfo == null)
+    {
+        <script type="text/javascript">
+            window.location.href = "/"
+        </script>
+    }
+    else
+    {
+        string otp = Session[TMDT.Common.CommonConstants.OTP_SESSION].ToString();
+    }
+}
+
+<div class="container">
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+        <div class="col-xl-10 col-lg-12 col-md-9">
+            <div class="col-xl-10 col-lg-12 col-md-9">
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row justify-content-center ">
+                            <div class="col-lg-12 ">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">
+                                            Mã kích hoạt đã được gửi đến Email:<strong> @if(userinfo!=null){@userinfo.Email}</strong>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @using (Html.BeginForm("ActivatingUser", "User", FormMethod.Post))
+                        {
+                            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                            <fieldset>
+                                <div class="form-group justify-content-center row">
+                                    @Html.TextBox("OTP", "", new { @class = "form-control form-control-user col-lg-6", @autofocus = "autofocus", @placeholder = "Nhập mã kích hoạt tại đây", @required = "true" })
+                                </div>
+                                <div class="form-group justify-content-center row">
+                                    <div class="col-lg-6">
+                                        <button type="submit" id="btn-submit-otp" class="btn btn-primary btn-user btn-block">
+                                            Xác nhận
+                                        </button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    ul {
+        list-style: none;
+        padding-left:unset;
+    }
+
+    li {
+        text-align: center !important;
+    }
+</style>

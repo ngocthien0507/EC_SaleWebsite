@@ -1,0 +1,110 @@
+﻿@model List<Model.EF.OrderDetail>
+@{
+    ViewBag.Title = "OrderDetailManager";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var user = (TMDT.Common.UserLogin)Session[TMDT.Common.CommonConstants.USER_SESSION];
+    var customer = (Model.EF.TotalOrder)ViewBag.Customer;
+    var shoporder = (Model.EF.ShopOrder)ViewBag.ShopOrder;
+}
+@section jsFooter{
+    <script src="~/Scripts/jsController/ShopManager.js"></script>
+}
+<div class="content">
+    <div style="float:right;" class="row">
+        <div class="col-lg-12">
+            <p>
+                <strong>
+                    (*)Lưu ý : Vui lòng liên hệ với khách hàng để trao đổi hình thức thanh toán và phí vận chuyển trước khi
+                    <i style="color:blue;">xác nhận đơn hàng</i>
+                </strong>
+            </p>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="section group row">
+        <div style="background-color:rgb(245, 245, 245);border-radius:20px;" class="col-lg-6 border border-dark">
+            <center><h1 class="h4 mb-4 text-gray-800">Danh sách sản phẩm</h1></center>
+            <table style="font-size:13px;" class="table">
+                <thead>
+                    <tr style="color:white;background-color:#383838">
+                        <th>Sản phẩm</th>
+                        <th>Loại</th>
+                        <th>Ảnh</th>
+                        <th>Đơn giá</th>
+                        <th>Số lượng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Product.Name</td>
+                            <th>@item.Product.ProductCategory.Name</th>
+                            <td><a href="@item.Product.Image"><img src="@item.Product.Image" width="80" height="50" /></a></td>
+                            <td>@item.Product.Price.GetValueOrDefault(0).ToString("N0")Đ</td>
+                            <td>@item.Quantity</td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+        <div style="background-color:rgb(245, 245, 245);border-radius:20px;margin-left:50px;" class="col-lg-5 border border-dark">
+            <center><h1 class="h4 mb-4 text-gray-800">Thông tin giao hàng</h1></center>
+            <div style="margin-left:3px;" class="infocustom">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <p><strong>Tên khách hàng: </strong></p>
+                    </div>
+                    <div class="col-lg-7">
+                        <p><strong>@customer.CustomerName</strong></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-5">
+                        <p><strong>Điện thoại: </strong></p>
+                    </div>
+                    <div class="col-lg-7">
+                        <p><strong>@customer.Phone</strong></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-5">
+                        <p><strong>Địa chỉ giao hàng: </strong></p>
+                    </div>
+                    <div class="col-lg-7">
+                        <p><strong>@customer.Address</strong></p>
+                    </div>
+                </div>
+                <center>
+                    @if (shoporder.Status == 0)
+                    {
+                        <a id="confirmOrder" href="#" data-id="@shoporder.ID" class="btn btn-primary">Xác nhận đơn hàng</a><span></span>
+                        <a id="refuseOrder" href="#" data-id="@shoporder.ID" class="btn btn-danger">Hủy đơn hàng</a>
+                    }
+                    else if (shoporder.Status == 1)
+                    {
+                        <h3 style="color:blue">Đang giao hàng</h3>
+                    }
+                    else if (shoporder.Status == 2)
+                    {
+                        <h3 style="color:green">Giao hàng thành công</h3>
+                    }
+                    else
+                    {
+                        <h3 style="color:red">Đã hủy</h3>
+                    }
+                </center>
+            </div>
+        </div>
+    </div>
+    <div>
+        <a href="/quan-ly-shop/quan-ly-don-hang"><i class="fa fa-arrow-circle-left"></i> Quạy lại</a>
+    </div>
+</div>
+<style>
+    .infocustom div {
+        margin-bottom: 7px;
+    }
+</style>

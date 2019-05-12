@@ -1,0 +1,77 @@
+﻿@model Model.EF.Account
+@{
+    ViewBag.Title = "Quản lý tài khoản";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section jsFooter{
+    <script>
+        //show form change password
+        function ChangePass() {
+            document.getElementById('changepass').style.display = 'block';
+        }
+    </script>
+    <script type="text/javascript">
+        function clicked(e) {
+            var pass = $("#Pass").val();
+            var confirmpass = $("#ConfirmPass").val();
+            if (pass != confirmpass) {
+                alert("Nhập lại mật khẩu không chính xác");
+                e.preventDefault();
+            }
+        }
+    </script>
+}
+<div class="row">
+    <div style="margin-left:220px; margin-top:50px;" class="col-lg-7">
+        <div>
+            <div class="text-center">
+                <h3 class="h4 text-gray-900 mb-4">Sửa thông tin người dùng</h3>
+            </div>
+            <script>
+                var check = function () {
+                    if (document.getElementById('Pass').value ==
+                        document.getElementById('ConfirmPass').value) {
+                        document.getElementById('Check').style.color = 'green';
+                        document.getElementById('Check').innerHTML = 'Nhập lại mật khẩu trùng khớp';
+                    } else {
+                        document.getElementById('Check').style.color = 'red';
+                        document.getElementById('Check').innerHTML = 'Nhập lại mật khẩu chưa trùng khớp';
+                    }
+                }
+            </script>
+            @using (Html.BeginForm("AccountManager", "User", FormMethod.Post, new { @class = "user", @id = "formsubmit-admin", @onsubmit = "clicked(event)" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                <label style="margin-bottom:10px;">Họ và tên</label>
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control form-control-user", @placeholder = "Họ Tên", @required = "true" })
+                </div>
+                <label style="margin-bottom:10px;">Số điện thoại</label>
+                <div class="form-group">
+                    <div id="PhoneMessage" class="text-danger"></div>
+                    @Html.TextBoxFor(model => model.Phone, new { @class = "form-control form-control-user", @placeholder = "Sô điện thoại", @required = "true" })
+                </div>
+                <label style="margin-bottom:10px;">Địa chỉ</label>
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.Address, new { @class = "form-control form-control-user", @placeholder = "Địa chỉ", @required = "true" })
+                </div>
+                <div onclick="ChangePass()" class="form-group btn btn-primary">Đổi mật khẩu</div>
+                <div style="display:none;" id="changepass">
+                    <label style="margin-bottom:10px;">Mật khẩu mới</label>
+                    <div class="form-group">
+                        <input type="password" value="" class="form-control form-control-user" id="Pass" name="Pass" placeholder="Mật khẩu" required onkeyup="check();" />
+                    </div>
+                    <label style="margin-bottom:10px;">Nhập lại mật khẩu</label>
+                    <div class="form-group">
+                        <input type="password" value="" class="form-control form-control-user" id="ConfirmPass" name="ConfirmPass" placeholder="Xác nhận mật khẩu" required onkeyup="check();" />
+                    </div>
+                    <label id="Check" style="margin-bottom:10px; color:forestgreen;"></label>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Cập nhật" class="btn btn-primary btn-user btn-block" />
+                </div>
+            }
+        </div>
+    </div>
+</div>

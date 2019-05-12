@@ -1,0 +1,382 @@
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\TMDT.dll.config
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\TMDT.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\TMDT.pdb
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\csc.exe
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\csc.exe.config
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\csc.rsp
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\csi.exe
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\csi.exe.config
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\csi.rsp
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\System.AppContext.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\System.Console.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\System.IO.Compression.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\System.IO.Pipes.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\System.Security.Claims.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\System.ValueTuple.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\vbc.exe
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\vbc.exe.config
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\vbc.rsp
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\VBCSCompiler.exe
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\Antlr3.Runtime.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\BotDetect.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\BotDetect.Web.Mvc.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\Common.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\EntityFramework.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\EntityFramework.SqlServer.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\Model.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\Newtonsoft.Json.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\System.Data.SQLite.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\System.Web.Helpers.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\System.Web.Mvc.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\System.Web.Optimization.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\System.Web.Razor.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\System.Web.WebPages.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\System.Web.WebPages.Razor.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\WebGrease.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\Common.pdb
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\Model.pdb
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\Model.dll.config
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\EntityFramework.xml
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\EntityFramework.SqlServer.xml
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\System.Data.SQLite.xml
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\System.Data.SQLite.dll.config
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\System.Web.Helpers.xml
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\System.Web.Mvc.xml
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\System.Web.Optimization.xml
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\System.Web.Razor.xml
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\System.Web.WebPages.xml
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\System.Web.WebPages.Razor.xml
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\Newtonsoft.Json.xml
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\Antlr3.Runtime.pdb
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\Thien\source\repos\TMDT\TMDT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Thien\source\repos\TMDT\TMDT\obj\Debug\TMDT.csprojAssemblyReference.cache
+C:\Users\Thien\source\repos\TMDT\TMDT\obj\Debug\TMDT.csproj.CoreCompileInputs.cache
+C:\Users\Thien\source\repos\TMDT\TMDT\obj\Debug\TMDT.csproj.CopyComplete
+C:\Users\Thien\source\repos\TMDT\TMDT\obj\Debug\TMDT.dll
+C:\Users\Thien\source\repos\TMDT\TMDT\obj\Debug\TMDT.pdb
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\TMDT.dll.config
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\TMDT.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\TMDT.pdb
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\csc.exe
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\csc.exe.config
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\csc.rsp
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\csi.exe
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\csi.exe.config
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\csi.rsp
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\System.AppContext.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\System.Console.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\System.IO.Compression.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\System.IO.Pipes.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\System.Security.Claims.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\System.ValueTuple.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\vbc.exe
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\vbc.exe.config
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\vbc.rsp
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\VBCSCompiler.exe
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\Antlr3.Runtime.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\BotDetect.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\BotDetect.Web.Mvc.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\Common.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\EntityFramework.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\EntityFramework.SqlServer.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\Model.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\Newtonsoft.Json.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\System.Data.SQLite.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\System.Web.Helpers.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\System.Web.Mvc.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\System.Web.Optimization.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\System.Web.Razor.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\System.Web.WebPages.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\System.Web.WebPages.Razor.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\WebGrease.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\Common.pdb
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\Model.pdb
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\EntityFramework.xml
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\EntityFramework.SqlServer.xml
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\System.Data.SQLite.xml
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\System.Web.Helpers.xml
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\System.Web.Mvc.xml
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\System.Web.Optimization.xml
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\System.Web.Razor.xml
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\System.Web.WebPages.xml
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\System.Web.WebPages.Razor.xml
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\Newtonsoft.Json.xml
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\Antlr3.Runtime.pdb
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\obj\Debug\TMDT.csprojResolveAssemblyReference.cache
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\obj\Debug\TMDT.dll
+C:\Users\Nam Tran\Desktop\ProjectEC-master\TMDT\obj\Debug\TMDT.pdb
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\TMDT.dll.config
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\TMDT.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\TMDT.pdb
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\csc.exe
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\csc.exe.config
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\csc.rsp
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\csi.exe
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\csi.exe.config
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\csi.rsp
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\System.AppContext.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\System.Console.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\System.IO.Compression.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\System.IO.Pipes.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\System.Security.Claims.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\System.ValueTuple.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\vbc.exe
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\vbc.exe.config
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\vbc.rsp
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\VBCSCompiler.exe
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\Antlr3.Runtime.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\BotDetect.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\BotDetect.Web.Mvc.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\Common.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\EntityFramework.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\EntityFramework.SqlServer.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\Model.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\Newtonsoft.Json.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\PagedList.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\PagedList.Mvc.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\System.Data.SQLite.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\System.Web.Helpers.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\System.Web.Mvc.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\System.Web.Optimization.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\System.Web.Razor.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\System.Web.WebPages.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\System.Web.WebPages.Razor.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\WebGrease.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\Common.pdb
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\Model.pdb
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\Model.dll.config
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\EntityFramework.xml
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\EntityFramework.SqlServer.xml
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\PagedList.xml
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\PagedList.Mvc.xml
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\System.Data.SQLite.xml
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\System.Data.SQLite.dll.config
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\System.Web.Helpers.xml
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\System.Web.Mvc.xml
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\System.Web.Optimization.xml
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\System.Web.Razor.xml
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\System.Web.WebPages.xml
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\System.Web.WebPages.Razor.xml
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\Newtonsoft.Json.xml
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\Antlr3.Runtime.pdb
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\obj\Debug\TMDT.csprojAssemblyReference.cache
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\obj\Debug\TMDT.csproj.CoreCompileInputs.cache
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\obj\Debug\TMDT.csproj.CopyComplete
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\obj\Debug\TMDT.dll
+C:\Users\Nam Tran\source\repos\ProjectEC-master\TMDT\obj\Debug\TMDT.pdb
+C:\Users\Thien\Desktop\ProjectEC\TMDT\obj\Debug\TMDT.csprojAssemblyReference.cache
+C:\Users\Thien\Desktop\ProjectEC\TMDT\obj\Debug\TMDT.csproj.CoreCompileInputs.cache
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\TMDT.dll.config
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\TMDT.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\TMDT.pdb
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\csc.exe
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\csc.exe.config
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\csc.rsp
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\csi.exe
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\csi.exe.config
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\csi.rsp
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\System.AppContext.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\System.Console.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\System.IO.Compression.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\System.IO.Pipes.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\System.Security.Claims.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\System.ValueTuple.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\vbc.exe
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\vbc.exe.config
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\vbc.rsp
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\VBCSCompiler.exe
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\Antlr3.Runtime.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\BotDetect.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\BotDetect.Web.Mvc.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\CKFinder.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\Common.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\EntityFramework.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\EntityFramework.SqlServer.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\Model.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\Newtonsoft.Json.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\PagedList.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\PagedList.Mvc.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\System.Data.SQLite.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\System.Web.Helpers.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\System.Web.Mvc.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\System.Web.Optimization.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\System.Web.Razor.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\System.Web.WebPages.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\System.Web.WebPages.Razor.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\WebGrease.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\Common.pdb
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\Model.pdb
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\Model.dll.config
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\CKFinder.pdb
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\EntityFramework.xml
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\EntityFramework.SqlServer.xml
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\PagedList.xml
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\PagedList.Mvc.xml
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\System.Data.SQLite.xml
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\System.Data.SQLite.dll.config
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\System.Web.Helpers.xml
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\System.Web.Mvc.xml
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\System.Web.Optimization.xml
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\System.Web.Razor.xml
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\System.Web.WebPages.xml
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\System.Web.WebPages.Razor.xml
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\Newtonsoft.Json.xml
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\Antlr3.Runtime.pdb
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\Thien\Desktop\ProjectEC\TMDT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Thien\Desktop\ProjectEC\TMDT\obj\Debug\TMDT.csproj.CopyComplete
+C:\Users\Thien\Desktop\ProjectEC\TMDT\obj\Debug\TMDT.dll
+C:\Users\Thien\Desktop\ProjectEC\TMDT\obj\Debug\TMDT.pdb

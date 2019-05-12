@@ -1,0 +1,155 @@
+﻿@{
+    ViewBag.Title = "Trang chủ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var slides = (List<Model.EF.advertisement>)ViewBag.Slides;
+    var ListNewProduct = (List<Model.EF.Product>)ViewBag.NewProduct;
+    var ListFeatureProduct = (List<Model.EF.Product>)ViewBag.FeatureProduct;
+}
+@section css{
+    <style>
+        .CustomImgSlide {
+            width: 100% !important;
+            height: 374.2px !important;
+        }
+    </style>
+}
+@section jsFooter{
+    <script>
+        $('.carousel').carousel({
+            interval: 3000
+        });
+    </script>
+}
+@section slide
+{
+    <div class="header_slide">
+        <div class="header_bottom_left">
+            @{ Html.RenderAction("ProductCategory", "Product");}
+        </div>
+        <div class="header_bottom_right">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    @for (var i = 0; i < slides.Count(); i++)
+                    {
+                        if (i == 0)
+                        {
+                            <li data-target="#carouselExampleControls" data-slide-to="@i" class="active"></li>
+                        }
+                        else
+                        {
+                            <li data-target="#carouselExampleControls" data-slide-to="@i"></li>
+                        }
+                    }
+                </ol>
+                <div class="carousel-inner">
+                    @if (slides.Count() > 0)
+                    {
+                        foreach (var item in slides)
+                        {
+                            if (item.ID == slides.First().ID)
+                            {
+                                <div class="carousel-item active">
+                                    <a href="@item.Link"><img src="@item.Image" class="d-block w-100 CustomImgSlide" alt="@item.Content"></a>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="carousel-item">
+                                    <a href="@item.Link"><img src="@item.Image" class="d-block w-100 CustomImgSlide" alt="@item.Content"></a>
+                                </div>
+                            }
+                        }
+                    }
+                    else
+                    {
+                        <div class="carousel-item active">
+                            <img src="~/Data/Advertisment/AdSlide.jpg" class="d-block w-100 CustomImgSlide" alt="lean more">
+                        </div>
+                    }
+
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+}
+<div class="content">
+    <div class="content_top">
+        <div class="heading">
+            <h3>Sản phẩm mới</h3>
+        </div>
+        <div class="see">
+            <p><a href="/san-pham">Xem tất cả sản phẩm</a></p>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="section group row">
+        @foreach (var item in ListNewProduct)
+        {
+            var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
+            <div class="grid_1_of_4 images_1_of_4">
+                <div>
+                    <a href="@url"><img src="@item.Image" alt="" /></a>
+                </div>
+                <div class="productname">
+                    <h2><a href="@url">@item.Name</a></h2>
+                </div>
+                <div class="price-details">
+                    <p><span class="rupees">@(item.Price.HasValue ? item.Price.Value.ToString("N0") + " VNĐ" : "Liên hệ")</span></p>
+                </div>
+                <div class="add-cart">
+                    <h4><a href="/them-vao-gio?productID=@item.ID&quantity=1">Thêm vào giỏ hàng</a></h4>
+                </div>
+                <div class="merchant-name">
+                    <a href="/san-pham/@item.Account1.ShopName/@item.Account1.ID">Cửa hàng:@item.Account1.ShopName</a>
+                </div>
+                <div class="quantity-left">
+                    Còn lại: @item.Quantity
+                </div>
+            </div>
+        }
+    </div>
+    <div class="content_bottom">
+        <div class="heading">
+            <h3>Sản phẩm hot</h3>
+        </div>
+        <div class="see">
+            <p><a href="/san-pham">Xem tất cả sản phẩm</a></p>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="section group row">
+        @foreach (var item in ListFeatureProduct)
+        {
+            var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
+            <div class="grid_1_of_4 images_1_of_4">
+                <div>
+                    <a href="@url"><img src="@item.Image" alt="" /></a>
+                </div>
+                <div class="productname">
+                    <h2><a href="@url">@item.Name</a></h2>
+                </div>
+                <div class="price-details">
+                    <p><span class="rupees">@(item.Price.HasValue ? item.Price.Value.ToString("N0") + " VNĐ" : "Liên hệ")</span></p>
+                </div>
+                <div class="add-cart">
+                    <h4><a href="/them-vao-gio?productID=@item.ID&quantity=1">Thêm vào giỏ hàng</a></h4>
+                </div>
+                <div class="merchant-name">
+                    <a href="/san-pham/@item.Account1.ShopName/@item.Account1.ID">Cửa hàng:@item.Account1.ShopName</a>
+                </div>
+                <div class="quantity-left">
+                    Còn lại: @item.Quantity
+                </div>
+            </div>
+        }
+    </div>
+</div>

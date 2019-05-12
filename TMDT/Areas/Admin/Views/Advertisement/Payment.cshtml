@@ -1,0 +1,101 @@
+﻿@model Model.EF.Account
+@{
+    /**/
+
+    ViewBag.Title = "Quản lý quảng cáo";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var orderdetail = (Model.EF.OrderAdvertisement)ViewBag.OrderDetail;
+}
+@section header{
+    Form thanh toán quảng cáo
+}
+@section script{
+    <script type="text/javascript">
+        function clicked(e) {
+            if (!confirm('Bạn đã chắc chắn với thông tin đăng ký chưa?')) e.preventDefault();
+        }
+    </script>
+
+}
+<div class="row">
+    <div class="col-lg-6">
+        <div>
+            <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Nhập thông tin</h1>
+            </div>
+            @using (Html.BeginForm("Payment", "Advertisement", FormMethod.Post, new { @class = "user", @id = "formsubmit-admin", @onsubmit = "clicked(event)" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                <input name="IdOrderAD" value="@orderdetail.ID" type="hidden" />
+                <div class="form-group">
+                    @Html.Label("", "Khách hàng:", new { @style = "margin-left:5px;color: #3a3b45!important;" })
+                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control form-control-user", @placeholder = "Họ Tên", @required = "true" })
+                </div>
+                <div class="form-group">
+                    @Html.Label("", "Số CMND/Căn cước:", new { @style = "margin-left:5px;color: #3a3b45!important;" })
+                    @Html.TextBoxFor(model => model.CMND, new { @class = "form-control form-control-user", @placeholder = "CMND/Căn cước", @required = "true" })
+                </div>
+                <div class="form-group">
+                    @Html.Label("", "Số điện thoại:", new { @style = "margin-left:5px;color: #3a3b45!important;" })
+                    @Html.TextBoxFor(model => model.Phone, new { @class = "form-control form-control-user", @placeholder = "Số điện thoại", @required = "true" })
+                </div>
+                <div class="form-group">
+                    @Html.Label("", "Địa chỉ:", new { @style = "margin-left:5px;color: #3a3b45!important;" })
+                    @Html.TextBoxFor(model => model.Address, new { @class = "form-control form-control-user", @placeholder = "Địa chỉ", @required = "true" })
+                </div>
+                <div class="form-group">
+                    @Html.Label("", "Mã giao dịch:", new { @style = "margin-left:5px;color: #3a3b45!important;" })
+                    @Html.TextBox("TradeCode", "", new { @class = "form-control form-control-user", @placeholder = "Mã giao dịch", @required = "true" })
+                </div>
+                <div class="form-group">
+                    @Html.Label("", "Số tiền đã chuyển :", new { @style = "margin-left:5px;color: #3a3b45!important;" })
+                    <input name="Money" type="number" class="form-control form-control-user" required />
+                </div>
+                <div class="form-group">
+                    <input type="submit" id="buttonsubmit" value="Xác nhận thanh toán" class="btn btn-primary btn-user btn-block" />
+                </div>
+            }
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div>
+            <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Thông tin quảng cáo</h1>
+            </div>
+            <div>
+                <div class="form-group" style="font-size:large;color:black;">
+                    <label>Tên quảng cáo: <strong>@orderdetail.advertisement.Content</strong></label>
+                </div>
+                <div class="form-group" style="font-size:large;color:black;">
+                    <label>Loại         : <strong>@orderdetail.advertisement.LocationAd.Name</strong></label>
+                </div>
+                <div class="form-group" style="font-size:large;color:black;">
+                    <label>Đơn giá   : <strong>@orderdetail.advertisement.LocationAd.Price.GetValueOrDefault(0).ToString("N0")VNĐ</strong></label>
+                </div>
+                <div class="form-group" style="font-size:large;color:black;">
+                    <label>Ngày bắt đầu : <strong>@String.Format("{0:dd/MM/yyyy}", orderdetail.StartDate) </strong></label>
+                </div>
+                <div class="form-group" style="font-size:large;color:black;">
+                    <label>Ngày kết thúc: <strong>@String.Format("{0:dd/MM/yyyy}", orderdetail.EndDate)</strong></label>
+                </div>
+                <div class="form-group" style="font-size:large;color:black;">
+                    <label>Thành tiền   : <strong>@orderdetail.Price.GetValueOrDefault(0).ToString("N0")VNĐ</strong></label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        @if (orderdetail.advertisement.Location != "SLIDE")
+        {
+            <img src="@orderdetail.advertisement.Image" style="max-height:620px;max-width:190px;" />
+        }
+        else
+        {
+            <img src="@orderdetail.advertisement.Image" style="height:200px;max-width:100%;" />
+        }
+    </div>
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
